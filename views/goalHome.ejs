@@ -1,0 +1,772 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<!--begin::Head-->
+	<head><base href="">
+		<meta charset="utf-8" />
+		<title>Goals - Home</title>
+		<meta name="description" content="Updates and statistics" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+		
+		<!--begin::Fonts-->
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
+		<!--end::Fonts-->
+		<!--begin::Page Vendors Styles(used by this page)-->
+		<link href="/assets/plugins/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet" type="text/css" />
+		<!--end::Page Vendors Styles-->
+		<!--begin::Global Theme Styles(used by all pages)-->
+		<link href="/assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
+		<link href="/assets/plugins/custom/prismjs/prismjs.bundle.css" rel="stylesheet" type="text/css" />
+		<link href="/assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
+		<!--end::Global Theme Styles-->
+		<!--begin::Layout Themes(used by all pages)-->
+		<!--end::Layout Themes-->
+		<link rel="shortcut icon" href="assets/media/svg/logo.png" />
+	</head>
+	<!--end::Head-->
+	<!--begin::Body-->
+	<body id="kt_body" class="header-fixed header-mobile-fixed sidebar-enabled page-loading">
+		<!--begin::Main-->
+		<!--begin::Header Mobile-->
+		<div id="kt_header_mobile" class="header-mobile header-mobile-fixed">
+			<!--begin::Logo-->
+			<a href="/api/user/dashboard">
+				<img alt="Logo" src="/Main-Page/assets/images/cacheLogo.png" class="logo-default max-h-30px" />
+			</a>
+			<!--end::Logo-->
+			<!--begin::Toolbar-->
+			<div class="d-flex align-items-center">
+				<button class="btn btn-hover-icon-primary p-0 ml-2" id="kt_aside_mobile_toggle">
+					
+					<span class="svg-icon svg-icon-xl"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\legacy\metronic\theme\html\demo10\dist/../src/media/svg/icons\Text\Toggle-Left.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+						<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+							<rect x="0" y="0" width="24" height="24"/>
+							<path d="M2 11.5C2 12.3284 2.67157 13 3.5 13H20.5C21.3284 13 22 12.3284 22 11.5V11.5C22 10.6716 21.3284 10 20.5 10H3.5C2.67157 10 2 10.6716 2 11.5V11.5Z" fill="black"/>
+					  <path opacity="0.5" fill-rule="evenodd" clip-rule="evenodd" d="M9.5 20C8.67157 20 8 19.3284 8 18.5C8 17.6716 8.67157 17 9.5 17H20.5C21.3284 17 22 17.6716 22 18.5C22 19.3284 21.3284 20 20.5 20H9.5ZM15.5 6C14.6716 6 14 5.32843 14 4.5C14 3.67157 14.6716 3 15.5 3H20.5C21.3284 3 22 3.67157 22 4.5C22 5.32843 21.3284 6 20.5 6H15.5Z" fill="black"/>
+						</g>
+					</svg><!--end::Svg Icon--></span>
+				</button>
+			</div>
+			<!--end::Toolbar-->
+		</div>
+		<!--end::Header Mobile-->
+		<div class="d-flex flex-column flex-root">
+			<!--begin::Page-->
+			<div class="d-flex flex-row flex-column-fluid page">
+				<!--begin::Aside-->
+				<div class="aside aside-left d-flex flex-column" id="kt_aside">
+					<!--begin::Brand-->
+					<div class="aside-brand d-flex flex-column align-items-center flex-column-auto py-9">
+						<!--begin::Logo-->
+						<div class="btn p-0 symbol symbol-40 symbol-success" href="?page=index" id="kt_quick_user_toggle">
+							<div class="symbol-label">
+								<img alt="Logo" src="/assets/media/svg/avatars/009-boy-4.svg" class="h-75 align-self-end" />
+							</div>
+						</div>
+						<!--end::Logo-->
+					</div>
+					<!--end::Brand-->
+					<!--begin::Nav Wrapper-->
+					<div class="aside-nav d-flex flex-column align-items-center flex-column-fluid pb-10">
+						<!--begin::Nav-->
+						<ul class="nav flex-column">
+							<!--begin::Item-->
+							<li class="nav-item mb-2" data-toggle="tooltip" data-placement="right" data-container="body" data-boundary="window" title="Dashboard">
+								<a href="/api/user/dashboard" class="nav-link btn btn-icon btn-lg btn-borderless">
+									<span class="svg-icon svg-icon-xxl">
+										<!--begin::Svg Icon | path:assets/media/svg/icons/Layout/Layout-4-blocks.svg-->
+										<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+											<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+												<rect x="0" y="0" width="24" height="24" />
+												<rect fill="#000000" x="4" y="4" width="7" height="7" rx="1.5" />
+												<path d="M5.5,13 L9.5,13 C10.3284271,13 11,13.6715729 11,14.5 L11,18.5 C11,19.3284271 10.3284271,20 9.5,20 L5.5,20 C4.67157288,20 4,19.3284271 4,18.5 L4,14.5 C4,13.6715729 4.67157288,13 5.5,13 Z M14.5,4 L18.5,4 C19.3284271,4 20,4.67157288 20,5.5 L20,9.5 C20,10.3284271 19.3284271,11 18.5,11 L14.5,11 C13.6715729,11 13,10.3284271 13,9.5 L13,5.5 C13,4.67157288 13.6715729,4 14.5,4 Z M14.5,13 L18.5,13 C19.3284271,13 20,13.6715729 20,14.5 L20,18.5 C20,19.3284271 19.3284271,20 18.5,20 L14.5,20 C13.6715729,20 13,19.3284271 13,18.5 L13,14.5 C13,13.6715729 13.6715729,13 14.5,13 Z" fill="#000000" opacity="0.3" />
+											</g>
+										</svg>
+										<!--end::Svg Icon-->
+									</span>
+								</a>
+							</li>
+							<!--end::Item-->
+							<!--begin::Item-->
+							<li class="nav-item mb-2" data-toggle="tooltip" data-placement="right" data-container="body" data-boundary="window" title="Bill Payments">
+								<a href="/api/user/bill-payments" class="nav-link btn btn-icon btn-lg btn-borderless">
+									
+									
+									<span class="svg-icon svg-icon-xxl"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\legacy\metronic\theme\html\demo10\dist/../src/media/svg/icons\Home\Library.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+										<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+											<rect x="0" y="0" width="24" height="24"/>
+											<path d="M5,3 L6,3 C6.55228475,3 7,3.44771525 7,4 L7,20 C7,20.5522847 6.55228475,21 6,21 L5,21 C4.44771525,21 4,20.5522847 4,20 L4,4 C4,3.44771525 4.44771525,3 5,3 Z M10,3 L11,3 C11.5522847,3 12,3.44771525 12,4 L12,20 C12,20.5522847 11.5522847,21 11,21 L10,21 C9.44771525,21 9,20.5522847 9,20 L9,4 C9,3.44771525 9.44771525,3 10,3 Z" fill="#000000"/>
+											<rect fill="#000000" opacity="0.3" transform="translate(17.825568, 11.945519) rotate(-19.000000) translate(-17.825568, -11.945519) " x="16.3255682" y="2.94551858" width="3" height="18" rx="1"/>
+										</g>
+									</svg><!--end::Svg Icon--></span>
+								</a>
+							</li>
+							<!--end::Item-->
+							<!--begin::Item-->
+							<li class="nav-item mb-2" data-toggle="tooltip" data-placement="right" data-container="body" data-boundary="window" title="Accounts">
+								<a href="/api/account/home" class="nav-link btn btn-icon btn-lg btn-borderless">
+									<span class="svg-icon svg-icon-xxl">
+										<!--begin::Svg Icon | path:assets/media/svg/icons/Media/Equalizer.svg-->
+										<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+											<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+												<rect x="0" y="0" width="24" height="24" />
+												<rect fill="#000000" opacity="0.3" x="13" y="4" width="3" height="16" rx="1.5" />
+												<rect fill="#000000" x="8" y="9" width="3" height="11" rx="1.5" />
+												<rect fill="#000000" x="18" y="11" width="3" height="9" rx="1.5" />
+												<rect fill="#000000" x="3" y="13" width="3" height="7" rx="1.5" />
+											</g>
+										</svg>
+										<!--end::Svg Icon-->
+									</span>
+								</a>
+							</li>
+							<!--end::Item-->
+							<!--begin::Item-->
+							<li class="nav-item mb-2" data-toggle="tooltip" data-placement="right" data-container="body" data-boundary="window" title="Goals">
+								<a href="/api/goals/getAllGoals" class="nav-link btn btn-icon btn-lg btn-borderless active">
+									
+									<span class="svg-icon svg-icon-xxl"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\legacy\metronic\theme\html\demo10\dist/../src/media/svg/icons\Cooking\Dish.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+										<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+											<rect x="0" y="0" width="24" height="24"/>
+											<path d="M12,21 C7.02943725,21 3,16.9705627 3,12 C3,7.02943725 7.02943725,3 12,3 C16.9705627,3 21,7.02943725 21,12 C21,16.9705627 16.9705627,21 12,21 Z M12,18 C15.3137085,18 18,15.3137085 18,12 C18,8.6862915 15.3137085,6 12,6 C8.6862915,6 6,8.6862915 6,12 C6,15.3137085 8.6862915,18 12,18 Z" fill="#000000"/>
+											<path d="M12,16 C14.209139,16 16,14.209139 16,12 C16,9.790861 14.209139,8 12,8 C9.790861,8 8,9.790861 8,12 C8,14.209139 9.790861,16 12,16 Z" fill="#000000" opacity="0.3"/>
+										</g>
+									</svg><!--end::Svg Icon--></span>
+								</a>
+							</li>
+							<!--end::Item-->
+							
+						</ul>
+						<!--end::Nav-->
+					</div>
+					<!--end::Nav Wrapper-->
+					<!--begin::Footer-->
+					<div class="aside-footer d-flex flex-column align-items-center flex-column-auto py-8">
+						
+                        <form action="/api/user/logout" id="logout" method="post">
+
+                        </form>
+						
+						<a onclick="document.getElementById('logout').submit();" class="btn btn-icon btn-lg btn-borderless mb-1" id="kt_quick_panel_toggle" data-toggle="tooltip" data-placement="right" data-container="body" data-boundary="window" title="Sign Out">
+							
+                            <span class="svg-icon svg-icon-xxl"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\legacy\metronic\theme\html\demo10\dist/../src/media/svg/icons\Navigation\Sign-out.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <rect x="0" y="0" width="24" height="24"/>
+                                    <path d="M14.0069431,7.00607258 C13.4546584,7.00607258 13.0069431,6.55855153 13.0069431,6.00650634 C13.0069431,5.45446114 13.4546584,5.00694009 14.0069431,5.00694009 L15.0069431,5.00694009 C17.2160821,5.00694009 19.0069431,6.7970243 19.0069431,9.00520507 L19.0069431,15.001735 C19.0069431,17.2099158 17.2160821,19 15.0069431,19 L3.00694311,19 C0.797804106,19 -0.993056895,17.2099158 -0.993056895,15.001735 L-0.993056895,8.99826498 C-0.993056895,6.7900842 0.797804106,5 3.00694311,5 L4.00694793,5 C4.55923268,5 5.00694793,5.44752105 5.00694793,5.99956624 C5.00694793,6.55161144 4.55923268,6.99913249 4.00694793,6.99913249 L3.00694311,6.99913249 C1.90237361,6.99913249 1.00694311,7.89417459 1.00694311,8.99826498 L1.00694311,15.001735 C1.00694311,16.1058254 1.90237361,17.0008675 3.00694311,17.0008675 L15.0069431,17.0008675 C16.1115126,17.0008675 17.0069431,16.1058254 17.0069431,15.001735 L17.0069431,9.00520507 C17.0069431,7.90111468 16.1115126,7.00607258 15.0069431,7.00607258 L14.0069431,7.00607258 Z" fill="#000000" fill-rule="nonzero" opacity="0.3" transform="translate(9.006943, 12.000000) scale(-1, 1) rotate(-90.000000) translate(-9.006943, -12.000000) "/>
+                                    <rect fill="#000000" opacity="0.3" transform="translate(14.000000, 12.000000) rotate(-270.000000) translate(-14.000000, -12.000000) " x="13" y="6" width="2" height="12" rx="1"/>
+                                    <path d="M21.7928932,9.79289322 C22.1834175,9.40236893 22.8165825,9.40236893 23.2071068,9.79289322 C23.5976311,10.1834175 23.5976311,10.8165825 23.2071068,11.2071068 L20.2071068,14.2071068 C19.8165825,14.5976311 19.1834175,14.5976311 18.7928932,14.2071068 L15.7928932,11.2071068 C15.4023689,10.8165825 15.4023689,10.1834175 15.7928932,9.79289322 C16.1834175,9.40236893 16.8165825,9.40236893 17.2071068,9.79289322 L19.5,12.0857864 L21.7928932,9.79289322 Z" fill="#000000" fill-rule="nonzero" transform="translate(19.500000, 12.000000) rotate(-90.000000) translate(-19.500000, -12.000000) "/>
+                                </g>
+                            </svg><!--end::Svg Icon--></span>
+						</a>
+						<!--end::Quick Panel-->
+					</div>
+					<!--end::Footer-->
+				</div>
+				<!--end::Aside-->
+				<!--begin::Wrapper-->
+				<div class="d-flex flex-column flex-row-fluid wrapper" id="kt_wrapper">
+					<!--begin::Header-->
+					<div id="kt_header" class="header header-fixed">
+						<!--begin::Header Wrapper-->
+						<div class="header-wrapper rounded-top-xl d-flex flex-grow-1 align-items-center">
+							<!--begin::Container-->
+							<div class="container-fluid d-flex align-items-center justify-content-end justify-content-lg-between flex-wrap">
+								<!--begin::Menu Wrapper-->
+								<div class="header-menu-wrapper header-menu-wrapper-left" id="kt_header_menu_wrapper">
+									<!--begin::Menu-->
+									<div id="kt_header_menu" class="header-menu header-menu-mobile header-menu-layout-default">
+										<!--begin::Nav-->
+										<ul class="menu-nav">
+											<li class="menu-item menu-item-open menu-item-here menu-item-submenu menu-item-rel menu-item-open menu-item-here" data-menu-toggle="click" aria-haspopup="true">
+												<a href="javascript:;" class="menu-link menu-toggle">
+													<span class="menu-text">Goals</span>
+													<i class="menu-arrow"></i>
+												</a>
+											</li>
+										</ul>
+										<!--end::Nav-->
+									</div>
+									<!--end::Menu-->
+								</div>
+								<!--end::Menu Wrapper-->
+								<!--begin::Toolbar-->
+								
+								<!--end::Toolbar-->
+							</div>
+							<!--end::Container-->
+						</div>
+						<!--end::Header Wrapper-->
+					</div>
+					<!--end::Header-->
+					<!--begin::Content-->
+					<div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+						<!--begin::Subheader-->
+						<div class="subheader py-2 py-lg-4 subheader-transparent" id="kt_subheader">
+							<div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
+								<!--begin::Details-->
+								<div class="d-flex align-items-center flex-wrap mr-2">
+									<!--begin::Title-->
+									<h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Goal - Home</h5>
+									<!--end::Title-->
+								</div>
+								<!--end::Details-->
+								<!--begin::Toolbar-->
+								<div class="d-flex align-items-center">
+									<!--begin::Button-->
+									<a href="#" class=""></a>
+									<!--end::Button-->
+									<!--begin::Button-->
+									<a href="/api/goals/addGoal" class="btn btn-light-primary font-weight-bold ml-2">Create Goal</a>
+									<!--end::Button-->
+								</div>
+								<!--end::Toolbar-->
+							</div>
+						</div>
+						<!--end::Subheader-->
+						<!--begin::Entry-->
+						<div class="d-flex flex-column-fluid">
+							<!--begin::Container-->
+							<% if(halfLen > 0 || isOdd === 1){ %>
+							<div class="container-fluid">
+								<% if(isGreater){ %>
+								<% for(var i=0; i<halfLen; i=i+2){ %>
+								<!--begin::Row-->
+								<div class="row">
+									<div class="col-xl-6">
+										<!--begin::Card-->
+										<div class="card card-custom gutter-b card-stretch">
+											<!--begin::Body-->
+											<div class="card-body">
+												<!--begin::Section-->
+												<div class="d-flex align-items-center">
+													<!--begin::Pic-->
+													<div class="flex-shrink-0 mr-4 symbol symbol-65 symbol-circle">
+														<img src=<%= modifiedGoals[i].goalImage %> alt="image" />
+													</div>
+													<!--end::Pic-->
+													<!--begin::Info-->
+													<div class="d-flex flex-column mr-auto">
+														<!--begin: Title-->
+														<a href="#" class="card-title text-hover-primary font-weight-bolder font-size-h5 text-dark mb-1"><%= modifiedGoals[i].name %></a>
+														<!--end::Title-->
+													</div>
+													<!--end::Info-->
+													<!--begin::Toolbar-->
+													<div class="card-toolbar mb-auto">
+														<div class="dropdown dropdown-inline" data-toggle="tooltip" title="Quick actions" data-placement="left">
+															<a href="#" class="btn btn-clean btn-hover-light-primary btn-sm btn-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+																<i class="ki ki-bold-more-hor"></i>
+															</a>
+															<div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
+																<!--begin::Navigation-->
+																<ul class="navi navi-hover">
+																	<li class="navi-header pb-1">
+																		<span class="text-primary text-uppercase font-weight-bold font-size-sm">Add new:</span>
+																	</li>
+																	<li class="navi-item">
+																		<a href="/api/goals/deleteGoal/<%=modifiedGoals[i].goalId%>" class="navi-link">
+																			<span class="navi-icon">
+																				<i class="flaticon-delete"></i>
+																			</span>
+																			<span class="navi-text">Delete</span>
+																		</a>
+																	</li>
+																	<li class="navi-item">
+																		<a href="/api/goals/updateGoal/<%=modifiedGoals[i].goalId%>" class="navi-link">
+																			<span class="navi-icon">
+																				<i class="flaticon2-writing"></i>
+																			</span>
+																			<span class="navi-text">Modify</span>
+																		</a>
+																	</li>
+																</ul>
+																<!--end::Navigation-->
+															</div>
+														</div>
+													</div>
+													<!--end::Toolbar-->
+												</div>
+												<!--end::Section-->
+												<!--begin::Content-->
+												<div class="d-flex flex-wrap mt-14">
+													<div class="mr-12 d-flex flex-column mb-7">
+														<span class="d-block font-weight-bold mb-4">Start Date</span>
+														<span class="btn btn-light-primary btn-sm font-weight-bold btn-upper btn-text"><%= modifiedGoals[i].startDate %></span>
+													</div>
+													<div class="mr-12 d-flex flex-column mb-7">
+														<span class="d-block font-weight-bold mb-4">Due Date</span>
+														<span class="btn btn-light-danger btn-sm font-weight-bold btn-upper btn-text"><%= modifiedGoals[i].endDate %></span>
+													</div>
+													<!--begin::Progress-->
+													<div class="flex-row-fluid mb-7">
+														<span class="d-block font-weight-bold mb-4">Progress</span>
+														<div class="d-flex align-items-center pt-2">
+															<div class="progress progress-xs mt-2 mb-2 w-100">
+																<div class="progress-bar bg-warning <%= modifiedGoals[i].progressBar %>" role="progressbar"  aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+															</div>
+															<span class="ml-3 font-weight-bolder"><%= modifiedGoals[i].progress %>%</span>
+														</div>
+													</div>
+													<!--end::Progress-->
+												</div>
+												<!--end::Content-->
+												<!--begin::Text-->
+												<p class="mb-7 mt-3"><%= modifiedGoals[i].description %></p>
+												<!--end::Text-->
+												<!--begin::Blog-->
+												<div class="d-flex flex-wrap">
+													<!--begin: Item-->
+													<div class="mr-12 d-flex flex-column mb-7">
+														<span class="font-weight-bolder mb-4">Budget</span>
+														<span class="font-weight-bolder font-size-h5 pt-1">
+														<span class="font-weight-bold text-dark-50">₹</span><%= modifiedGoals[i].budget %></span>
+													</div>
+													<!--end::Item-->
+													<!--begin::Item-->
+													<div class="mr-12 d-flex flex-column mb-7">
+														<span class="font-weight-bolder mb-4">Saved</span>
+														<span class="font-weight-bolder font-size-h5 pt-1">
+														<span class="font-weight-bold text-dark-50">₹</span><%= modifiedGoals[i].saved %></span>
+													</div>
+													<!--end::Item-->
+                                                    <!--begin::Item-->
+													<div class="mr-12 d-flex flex-column mb-7">
+														<span class="font-weight-bolder mb-4">Yet to Save</span>
+														<span class="font-weight-bolder font-size-h5 pt-1">
+														<span class="font-weight-bold text-dark-50">₹</span><%= modifiedGoals[i].yetToSave %></span>
+													</div>
+													<!--end::Item-->
+												</div>
+												<!--end::Blog-->
+											</div>
+											<!--end::Body-->
+											<!--begin::Footer-->
+											<div class="card-footer d-flex align-items-center">
+												
+												<a href="/api/goals/details/<%= modifiedGoals[i].goalId %>"><button type="button" class="btn btn-primary btn-sm text-uppercase font-weight-bolder mt-5 mt-sm-0 mr-auto mr-sm-0 ml-sm-auto">details</button></a>
+											</div>
+											<!--end::Footer-->
+										</div>
+										<!--end::Card-->
+									</div>
+									<div class="col-xl-6">
+										<!--begin::Card-->
+										<div class="card card-custom gutter-b card-stretch">
+											<!--begin::Body-->
+											<div class="card-body">
+												<!--begin::Section-->
+												<div class="d-flex align-items-center">
+													<!--begin::Pic-->
+													<div class="flex-shrink-0 mr-4 symbol symbol-65 symbol-circle">
+														<img src=<%= modifiedGoals[i+1].goalImage %> alt="image" />
+													</div>
+													<!--end::Pic-->
+													<!--begin::Info-->
+													<div class="d-flex flex-column mr-auto">
+														<!--begin: Title-->
+														<a href="#" class="card-title text-hover-primary font-weight-bolder font-size-h5 text-dark mb-1"><%= modifiedGoals[i+1].name %></a>
+														
+														<!--end::Title-->
+													</div>
+													<!--end::Info-->
+													<!--begin::Toolbar-->
+													<div class="card-toolbar mb-auto">
+														<div class="dropdown dropdown-inline" data-toggle="tooltip" title="Quick actions" data-placement="left">
+															<a href="#" class="btn btn-clean btn-hover-light-primary btn-sm btn-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+																<i class="ki ki-bold-more-hor"></i>
+															</a>
+															<div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
+																<!--begin::Navigation-->
+																<ul class="navi navi-hover">
+																	<li class="navi-header pb-1">
+																		<span class="text-primary text-uppercase font-weight-bold font-size-sm">Add new:</span>
+																	</li>
+																	<li class="navi-item">
+																		<a href="/api/goals/deleteGoal/<%= modifiedGoals[i+1].goalId %>" class="navi-link">
+																			<span class="navi-icon">
+																				<i class="flaticon-delete"></i>
+																			</span>
+																			<span class="navi-text">Delete</span>
+																		</a>
+																	</li>
+																	<li class="navi-item">
+																		<a href="/api/goals/updateGoal/<%= modifiedGoals[i+1].goalId %>" class="navi-link">
+																			<span class="navi-icon">
+																				<i class="flaticon2-writing"></i>
+																			</span>
+																			<span class="navi-text">Modify</span>
+																		</a>
+																	</li>
+																</ul>
+																<!--end::Navigation-->
+															</div>
+														</div>
+													</div>
+													<!--end::Toolbar-->
+												</div>
+												<!--end::Section-->
+												<!--begin::Content-->
+												<div class="d-flex flex-wrap mt-14">
+													<div class="mr-12 d-flex flex-column mb-7">
+														<span class="d-block font-weight-bold mb-4">Start Date</span>
+														<span class="btn btn-light-primary btn-sm font-weight-bold btn-upper btn-text"><%= modifiedGoals[i+1].startDate %></span>
+													</div>
+													<div class="mr-12 d-flex flex-column mb-7">
+														<span class="d-block font-weight-bold mb-4">Due Date</span>
+														<span class="btn btn-light-danger btn-sm font-weight-bold btn-upper btn-text"><%= modifiedGoals[i+1].endDate %></span>
+													</div>
+													<!--begin::Progress-->
+													<div class="flex-row-fluid mb-7">
+														<span class="d-block font-weight-bold mb-4">Progress</span>
+														<div class="d-flex align-items-center pt-2">
+															<div class="progress progress-xs mt-2 mb-2 w-100">
+																<div class="progress-bar bg-warning <%= modifiedGoals[i+1].progressBar %>" role="progressbar"  aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+															</div>
+															<span class="ml-3 font-weight-bolder"><%= modifiedGoals[i+1].progress %>%</span>
+														</div>
+													</div>
+													<!--end::Progress-->
+												</div>
+												<!--end::Content-->
+												<!--begin::Text-->
+												<p class="mb-7 mt-3"><%= modifiedGoals[i+1].description %></p>
+												<!--end::Text-->
+												<!--begin::Blog-->
+												<div class="d-flex flex-wrap">
+													<!--begin: Item-->
+													<div class="mr-12 d-flex flex-column mb-7">
+														<span class="font-weight-bolder mb-4">Budget</span>
+														<span class="font-weight-bolder font-size-h5 pt-1">
+														<span class="font-weight-bold text-dark-50">₹</span><%= modifiedGoals[i+1].budget %></span>
+													</div>
+													<!--end::Item-->
+													<!--begin::Item-->
+													<div class="mr-12 d-flex flex-column mb-7">
+														<span class="font-weight-bolder mb-4">Saved</span>
+														<span class="font-weight-bolder font-size-h5 pt-1">
+														<span class="font-weight-bold text-dark-50">₹</span><%= modifiedGoals[i+1].saved %></span>
+													</div>
+													<!--end::Item-->
+                                                    <!--begin::Item-->
+													<div class="mr-12 d-flex flex-column mb-7">
+														<span class="font-weight-bolder mb-4">Yet to Save</span>
+														<span class="font-weight-bolder font-size-h5 pt-1">
+														<span class="font-weight-bold text-dark-50">₹</span><%= modifiedGoals[i+1].yetToSave %></span>
+													</div>
+													<!--end::Item-->
+												</div>
+												<!--end::Blog-->
+											</div>
+											<!--end::Body-->
+											<!--begin::Footer-->
+											<div class="card-footer d-flex align-items-center">
+												
+												<a href="/api/goals/details/<%= modifiedGoals[i+1].goalId %>"><button type="button" class="btn btn-primary btn-sm text-uppercase font-weight-bolder mt-5 mt-sm-0 mr-auto mr-sm-0 ml-sm-auto">details</button></a>
+											</div>
+											<!--end::Footer-->
+										</div>
+										<!--end::Card-->
+									</div>
+								</div>
+								<% } %>
+								<% } %>
+								<!--end::Row-->
+								<% if(isOdd == 1){ %>
+								<!--begin::Row-->
+								<div class="row">
+									<div class="col-xl-6">
+										<!--begin::Card-->
+										<div class="card card-custom gutter-b card-stretch">
+											<!--begin::Body-->
+											<div class="card-body">
+												<!--begin::Section-->
+												<div class="d-flex align-items-center">
+													<!--begin::Pic-->
+													<div class="flex-shrink-0 mr-4 symbol symbol-65 symbol-circle">
+														<img src=<%= lastGoal.goalImage %> alt="image" />
+													</div>
+													<!--end::Pic-->
+													<!--begin::Info-->
+													<div class="d-flex flex-column mr-auto">
+														<!--begin: Title-->
+														<a href="#" class="card-title text-hover-primary font-weight-bolder font-size-h5 text-dark mb-1"><%= lastGoal.name %></a>
+														
+														<!--end::Title-->
+													</div>
+													<!--end::Info-->
+													<!--begin::Toolbar-->
+													<div class="card-toolbar mb-auto">
+														<div class="dropdown dropdown-inline" data-toggle="tooltip" title="Quick actions" data-placement="left">
+															<a href="#" class="btn btn-clean btn-hover-light-primary btn-sm btn-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+																<i class="ki ki-bold-more-hor"></i>
+															</a>
+															<div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
+																<!--begin::Navigation-->
+																<ul class="navi navi-hover">
+																	<li class="navi-header pb-1">
+																		<span class="text-primary text-uppercase font-weight-bold font-size-sm">Add new:</span>
+																	</li>
+																	<li class="navi-item">
+																		<a href="/api/goals/deleteGoal/<%= lastGoal.goalId %>" class="navi-link">
+																			<span class="navi-icon">
+																				<i class="flaticon-delete"></i>
+																			</span>
+																			<span class="navi-text">Delete</span>
+																		</a>
+																	</li>
+																	<li class="navi-item">
+																		<a href="/api/goals/updateGoal/<%= lastGoal.goalId %>" class="navi-link">
+																			<span class="navi-icon">
+																				<i class="flaticon2-writing"></i>
+																			</span>
+																			<span class="navi-text">Modify</span>
+																		</a>
+																	</li>
+																</ul>
+																<!--end::Navigation-->
+															</div>
+														</div>
+													</div>
+													<!--end::Toolbar-->
+												</div>
+												<!--end::Section-->
+												<!--begin::Content-->
+												<div class="d-flex flex-wrap mt-14">
+													<div class="mr-12 d-flex flex-column mb-7">
+														<span class="d-block font-weight-bold mb-4">Start Date</span>
+														<span class="btn btn-light-primary btn-sm font-weight-bold btn-upper btn-text"><%= lastGoal.startDate %></span>
+													</div>
+													<div class="mr-12 d-flex flex-column mb-7">
+														<span class="d-block font-weight-bold mb-4">Due Date</span>
+														<span class="btn btn-light-danger btn-sm font-weight-bold btn-upper btn-text"><%= lastGoal.endDate %></span>
+													</div>
+													<!--begin::Progress-->
+													<div class="flex-row-fluid mb-7">
+														<span class="d-block font-weight-bold mb-4">Progress</span>
+														<div class="d-flex align-items-center pt-2">
+															<div class="progress progress-xs mt-2 mb-2 w-100">
+																<div class="progress-bar bg-warning <%= lastGoal.progressBar %>" role="progressbar"  aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+															</div>
+															<span class="ml-3 font-weight-bolder"><%= lastGoal.progress %>%</span>
+														</div>
+													</div>
+													<!--end::Progress-->
+												</div>
+												<!--end::Content-->
+												<!--begin::Text-->
+												<p class="mb-7 mt-3"><%= lastGoal.description %></p>
+												<!--end::Text-->
+												<!--begin::Blog-->
+												<div class="d-flex flex-wrap">
+													<!--begin: Item-->
+													<div class="mr-12 d-flex flex-column mb-7">
+														<span class="font-weight-bolder mb-4">Budget</span>
+														<span class="font-weight-bolder font-size-h5 pt-1">
+														<span class="font-weight-bold text-dark-50">₹</span><%= lastGoal.budget %></span>
+													</div>
+													<!--end::Item-->
+													<!--begin::Item-->
+													<div class="mr-12 d-flex flex-column mb-7">
+														<span class="font-weight-bolder mb-4">Saved</span>
+														<span class="font-weight-bolder font-size-h5 pt-1">
+														<span class="font-weight-bold text-dark-50">₹</span><%= lastGoal.saved %></span>
+													</div>
+													<!--end::Item-->
+                                                    <!--begin::Item-->
+													<div class="mr-12 d-flex flex-column mb-7">
+														<span class="font-weight-bolder mb-4">Yet to Save</span>
+														<span class="font-weight-bolder font-size-h5 pt-1">
+														<span class="font-weight-bold text-dark-50">₹</span><%= lastGoal.yetToSave %></span>
+													</div>
+													<!--end::Item-->
+												</div>
+												<!--end::Blog-->
+											</div>
+											<!--end::Body-->
+											<!--begin::Footer-->
+											<div class="card-footer d-flex align-items-center">
+												
+												<a href="/api/goals/details/<%= lastGoal.goalId %>"><<button type="button" class="btn btn-primary btn-sm text-uppercase font-weight-bolder mt-5 mt-sm-0 mr-auto mr-sm-0 ml-sm-auto">details</button></a>
+											</div>
+											<!--end::Footer-->
+										</div>
+										<!--end::Card-->
+									</div>
+								</div>
+								<% } %>
+								<!--end::Row-->
+							</div>
+							<% } else { %>
+								<div class="container">
+									<div class="card card-custom overflow-hidden position-relative mb-8">
+										<!--begin::SVG-->
+										<div class="position-absolute bottom-0 left-0 right-0 d-none d-lg-flex flex-row-fluid">
+											<span class="svg-icon svg-icon-full flex-row-fluid svg-icon-dark opacity-3">
+												<!--begin::Svg Icon | path:assets/media/bg/home-2-bg.svg-->
+												<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 1200 172" style="enable-background:new 0 0 1200 172;" xml:space="preserve">
+	<path class="st0" d="M2058,94c0,0,16-14,73-14s153,92,248,92s286-145,456-145s183,34,292,34s131-54,131-54v172H2058V94z" />
+	<path class="st0" d="M0,87c0,0,16-14,73-14s153,92,248,92S607,20,777,20s183,34,292,34s131-54,131-54v172H0V87z" />
+	</svg>
+												<!--end::Svg Icon-->
+											</span>
+										</div>
+										<div class="position-absolute d-flex top-0 right-0 offset-lg-5 col-lg-7 opacity-30 opacity-lg-100">
+											<span class="svg-icon svg-icon-full flex-row-fluid p-15">
+												<!--begin::Svg Icon | path:assets/media/svg/illustrations/working.svg-->
+												<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="e66d77ca-31e8-442d-a5de-b801817c4280" data-name="Layer 1" width="1024.7" height="671.65" viewBox="0 0 1024.7 671.65">
+													<circle cx="720.55" cy="430.76" r="105" fill="url(#a374d817-ded2-4154-8f0a-fb69bb0241af)" />
+													<circle cx="720.55" cy="430.76" r="100" fill="#f5f5f5" />
+													<g opacity="0.5">
+														<path d="M811,482.47a62.52,62.52,0,0,0-64.27,55.82h-18a3.64,3.64,0,0,0-3.64,3.64v6a3.65,3.65,0,0,0,3.64,3.65h18A62.5,62.5,0,1,0,811,482.47Z" transform="translate(-87.65 -114.18)" fill="url(#fd39efba-8078-41b8-857e-e17431406f47)" />
+													</g>
+													<path d="M810.19,486.22a58.75,58.75,0,0,0-60.41,52.47H732.36a2.91,2.91,0,0,0-2.91,2.91v6.67a2.91,2.91,0,0,0,2.91,2.92h17.42a58.75,58.75,0,1,0,60.41-65Z" transform="translate(-87.65 -114.18)" fill="#fff" />
+													<circle cx="720.55" cy="430.76" r="41.25" fill="#795548" />
+													<path d="M829.45,524.94s11.77,18.28,8.4,32.5C837.85,557.44,851.3,535.09,829.45,524.94Z" transform="translate(-87.65 -114.18)" fill="#fff" opacity="0.2" />
+													<circle cx="746.8" cy="453.26" r="3.75" fill="#fff" opacity="0.2" />
+													<rect x="119.09" y="182.63" width="213.27" height="308.72" transform="translate(-156.47 -56.04) rotate(-12.75)" fill="url(#b2bf7fa1-65c2-4695-aeca-af8d6fc55ae3)" />
+													<rect x="334.38" y="133.91" width="213.27" height="308.72" transform="translate(-140.4 -9.72) rotate(-12.75)" fill="url(#a8abeec4-29f5-4a5c-9a38-56f560b9b0a3)" />
+													<rect x="122.15" y="186.27" width="207.97" height="302.01" transform="translate(-156.52 -55.94) rotate(-12.75)" fill="#6c63ff" />
+													<rect x="336.06" y="137.86" width="207.97" height="302.01" transform="translate(-140.56 -9.92) rotate(-12.75)" fill="#f5f5f5" />
+													<rect x="135.55" y="222.61" width="124.88" height="20.81" transform="translate(-134.2 -64.73) rotate(-12.75)" fill="#f5f5f5" />
+													<rect x="124.12" y="271.86" width="166.5" height="5.2" transform="translate(-143.12 -61.63) rotate(-12.75)" fill="#f5f5f5" />
+													<rect x="126.8" y="283.7" width="166.5" height="5.2" transform="translate(-145.67 -60.75) rotate(-12.75)" fill="#f5f5f5" />
+													<rect x="129.48" y="295.54" width="166.5" height="5.2" transform="translate(-148.21 -59.87) rotate(-12.75)" fill="#f5f5f5" />
+													<rect x="133.23" y="316.95" width="79.78" height="5.2" transform="translate(-153.92 -68.08) rotate(-12.75)" fill="#f5f5f5" />
+													<rect x="135.76" y="327.46" width="91.92" height="5.2" transform="translate(-156.02 -65.92) rotate(-12.75)" fill="#f5f5f5" />
+													<rect x="137.52" y="331.07" width="166.5" height="5.2" transform="translate(-155.86 -57.21) rotate(-12.75)" fill="#f5f5f5" />
+													<rect x="140.2" y="342.91" width="166.5" height="5.2" transform="translate(-158.4 -56.33) rotate(-12.75)" fill="#f5f5f5" />
+													<rect x="143.03" y="356.09" width="154.36" height="5.2" transform="translate(-161.39 -56.72) rotate(-12.75)" fill="#f5f5f5" />
+													<rect x="145.56" y="366.59" width="166.5" height="5.2" transform="translate(-163.5 -54.56) rotate(-12.75)" fill="#f5f5f5" />
+													<rect x="149.22" y="387.24" width="86.72" height="5.2" transform="translate(-168.95 -62.05) rotate(-12.75)" fill="#f5f5f5" />
+													<rect x="372.13" y="350.43" width="91.92" height="5.2" transform="translate(-155.26 -13.18) rotate(-12.75)" fill="#6c63ff" opacity="0.3" />
+													<rect x="373.89" y="354.04" width="166.5" height="5.2" transform="translate(-155.1 -4.47) rotate(-12.75)" fill="#6c63ff" opacity="0.3" />
+													<rect x="376.57" y="365.88" width="166.5" height="5.2" transform="translate(-157.64 -3.59) rotate(-12.75)" fill="#6c63ff" opacity="0.3" />
+													<rect x="379.4" y="379.06" width="154.36" height="5.2" transform="translate(-160.63 -3.98) rotate(-12.75)" fill="#6c63ff" opacity="0.3" />
+													<rect x="381.93" y="389.56" width="166.5" height="5.2" transform="translate(-162.74 -1.82) rotate(-12.75)" fill="#6c63ff" opacity="0.3" />
+													<rect x="385.59" y="410.21" width="86.72" height="5.2" transform="translate(-168.19 -9.31) rotate(-12.75)" fill="#6c63ff" opacity="0.3" />
+													<rect x="221.62" y="391.43" width="100.59" height="69.38" transform="translate(-175 -43.64) rotate(-12.75)" fill="#f5f5f5" />
+													<rect x="337.76" y="165.98" width="100.59" height="69.38" transform="translate(-122.37 -23.57) rotate(-12.75)" fill="#6c63ff" opacity="0.3" />
+													<rect x="433.79" y="236.72" width="100.59" height="69.38" transform="translate(-135.62 -0.63) rotate(-12.75)" fill="#6c63ff" opacity="0.3" />
+													<rect x="410.68" y="203.79" width="213.27" height="308.72" rx="13.44" transform="translate(-153.95 8.85) rotate(-12.75)" fill="url(#af3e6cbd-120e-45f3-bb1d-3967e91ae903)" />
+													<rect x="412.36" y="207.74" width="207.97" height="302.01" rx="13.44" transform="translate(-154.1 8.65) rotate(-12.75)" fill="#6c63ff" />
+													<g opacity="0.5">
+														<rect x="220.35" y="542.11" width="3" height="17" fill="#47e6b1" />
+														<rect x="308" y="656.29" width="3" height="17" transform="translate(886.64 241.11) rotate(90)" fill="#47e6b1" />
+													</g>
+													<g opacity="0.5">
+														<rect x="726.55" y="32.76" width="3" height="17" fill="#47e6b1" />
+														<rect x="814.2" y="146.94" width="3" height="17" transform="translate(883.49 -774.44) rotate(90)" fill="#47e6b1" />
+													</g>
+													<g opacity="0.5">
+														<rect x="636.55" y="249.76" width="3" height="17" fill="#47e6b1" />
+														<rect x="724.2" y="363.94" width="3" height="17" transform="translate(1010.49 -467.44) rotate(90)" fill="#47e6b1" />
+													</g>
+													<g opacity="0.5">
+														<rect x="894.15" y="288.76" width="3" height="17" fill="#47e6b1" />
+														<rect x="981.8" y="402.94" width="3" height="17" transform="translate(1307.08 -686.03) rotate(90)" fill="#47e6b1" />
+													</g>
+													<path d="M482.69,654.59a3.68,3.68,0,0,1-2.05-4.44,1.15,1.15,0,0,0,.08-.41h0a1.84,1.84,0,0,0-3.31-1.22h0a2.53,2.53,0,0,0-.2.36,3.67,3.67,0,0,1-4.44,2,1.86,1.86,0,0,0-.41-.08h0a1.84,1.84,0,0,0-1.22,3.31h0a1.88,1.88,0,0,0,.36.21,3.67,3.67,0,0,1,2.05,4.44,1.89,1.89,0,0,0-.08.4h0a1.84,1.84,0,0,0,3.31,1.23h0a1.9,1.9,0,0,0,.2-.37,3.68,3.68,0,0,1,4.45-2,1.77,1.77,0,0,0,.4.08h0a1.84,1.84,0,0,0,1.22-3.31h0A1.62,1.62,0,0,0,482.69,654.59Z" transform="translate(-87.65 -114.18)" fill="#4d8af0" opacity="0.5" />
+													<path d="M628.89,779.24a3.68,3.68,0,0,1-2-4.44,1.86,1.86,0,0,0,.08-.41h0a1.84,1.84,0,0,0-3.31-1.22h0a1.82,1.82,0,0,0-.2.36,3.66,3.66,0,0,1-4.44,2.05,2,2,0,0,0-.41-.08h0a1.84,1.84,0,0,0-1.22,3.31h0a1.62,1.62,0,0,0,.36.21,3.68,3.68,0,0,1,2,4.44,1.86,1.86,0,0,0-.08.41h0a1.84,1.84,0,0,0,3.31,1.22h0a1.65,1.65,0,0,0,.2-.37,3.67,3.67,0,0,1,4.44-2,2,2,0,0,0,.41.08h0a1.84,1.84,0,0,0,1.22-3.31h0A1.62,1.62,0,0,0,628.89,779.24Z" transform="translate(-87.65 -114.18)" fill="#4d8af0" opacity="0.5" />
+													<path d="M847.89,348.24a3.68,3.68,0,0,1-2-4.44,1.86,1.86,0,0,0,.08-.41h0a1.84,1.84,0,0,0-3.31-1.22h0a1.82,1.82,0,0,0-.2.36,3.66,3.66,0,0,1-4.44,2.05,2,2,0,0,0-.41-.08h0a1.84,1.84,0,0,0-1.22,3.31h0a1.62,1.62,0,0,0,.36.21,3.68,3.68,0,0,1,2,4.44,1.86,1.86,0,0,0-.08.41h0a1.84,1.84,0,0,0,3.31,1.22h0a1.65,1.65,0,0,0,.2-.37,3.67,3.67,0,0,1,4.44-2,2,2,0,0,0,.41.08h0a1.84,1.84,0,0,0,1.22-3.31h0A1.62,1.62,0,0,0,847.89,348.24Z" transform="translate(-87.65 -114.18)" fill="#4d8af0" opacity="0.5" />
+													<path d="M999.89,509.24a3.68,3.68,0,0,1-2-4.44,1.86,1.86,0,0,0,.08-.41h0a1.84,1.84,0,0,0-3.31-1.22h0a1.82,1.82,0,0,0-.2.36,3.66,3.66,0,0,1-4.44,2.05,2,2,0,0,0-.41-.08h0a1.84,1.84,0,0,0-1.22,3.31h0a1.62,1.62,0,0,0,.36.21,3.68,3.68,0,0,1,2,4.44,1.86,1.86,0,0,0-.08.41h0a1.84,1.84,0,0,0,3.31,1.22h0a1.65,1.65,0,0,0,.2-.37,3.67,3.67,0,0,1,4.44-2,2,2,0,0,0,.41.08h0a1.84,1.84,0,0,0,1.22-3.31h0A1.62,1.62,0,0,0,999.89,509.24Z" transform="translate(-87.65 -114.18)" fill="#4d8af0" opacity="0.5" />
+													<circle cx="142.35" cy="487.11" r="6" fill="#f55f44" opacity="0.5" />
+													<circle cx="523.55" cy="50.76" r="6" fill="#4d8af0" opacity="0.5" />
+													<circle cx="498.55" cy="489.76" r="6" fill="#47e6b1" opacity="0.5" />
+													<circle cx="844.55" cy="639.76" r="6" fill="#f55f44" opacity="0.5" />
+													<g opacity="0.5">
+														<path d="M848.9,203.3h286a6.29,6.29,0,0,1,6.29,6.29V362.51a6.29,6.29,0,0,1-6.29,6.29h-286a6.28,6.28,0,0,1-6.28-6.28V209.58A6.29,6.29,0,0,1,848.9,203.3Z" transform="translate(346.54 1040.57) rotate(-73.39)" fill="url(#ad46d94a-2a5e-454e-b2ea-f38dffec9c1a)" />
+													</g>
+													<rect x="911.41" y="140.66" width="161.02" height="290.64" rx="13.64" transform="translate(35.53 -385.86) rotate(16.61)" fill="#fff" />
+													<path d="M1070.15,165.27a13,13,0,0,1-15.5,7l-53.29-15.91A13.05,13.05,0,0,1,992.2,142L964,133.59a6.13,6.13,0,0,0-7.61,4.11L880.92,390.53a6.11,6.11,0,0,0,4.12,7.6l134.84,40.24a6.11,6.11,0,0,0,7.6-4.11l75.44-252.83a6.1,6.1,0,0,0-4.11-7.6Z" transform="translate(-87.65 -114.18)" fill="#e0e0e0" />
+													<rect x="1010.74" y="156.59" width="35.88" height="2.24" rx="1.12" transform="translate(-5.15 -389.83) rotate(15.89)" fill="#dbdbdb" />
+													<circle cx="965.68" cy="50.32" r="1.35" fill="#dbdbdb" />
+													<rect x="953.4" y="188.74" width="44" height="38" transform="translate(2.54 -365.73) rotate(15.4)" fill="#fff" />
+													<rect x="938.79" y="241.77" width="44" height="38" transform="translate(16.09 -359.95) rotate(15.4)" fill="#6c63ff" opacity="0.3" />
+													<rect x="924.19" y="294.79" width="44" height="38" transform="translate(29.65 -354.17) rotate(15.4)" fill="#fff" />
+													<rect x="909.58" y="347.82" width="44" height="38" transform="translate(43.2 -348.39) rotate(15.4)" fill="#3ad29f" opacity="0.3" />
+													<rect x="1008.3" y="214.49" width="58" height="4" transform="translate(7.08 -381.86) rotate(15.4)" fill="#fff" />
+													<rect x="1005.11" y="226.06" width="58" height="4" transform="translate(10.04 -380.6) rotate(15.4)" fill="#fff" />
+													<rect x="993.96" y="266.56" width="58" height="4" transform="translate(20.39 -376.18) rotate(15.4)" fill="#fff" />
+													<rect x="990.77" y="278.12" width="58" height="4" transform="translate(23.35 -374.92) rotate(15.4)" fill="#fff" />
+													<rect x="979.62" y="318.62" width="58" height="4" transform="translate(33.7 -370.5) rotate(15.4)" fill="#fff" />
+													<rect x="976.43" y="330.19" width="58" height="4" transform="translate(36.66 -369.24) rotate(15.4)" fill="#fff" />
+													<rect x="965.28" y="370.68" width="58" height="4" transform="translate(47.01 -364.83) rotate(15.4)" fill="#fff" />
+													<rect x="962.09" y="382.25" width="58" height="4" transform="translate(49.97 -363.56) rotate(15.4)" fill="#fff" />
+												</svg>
+												<!--end::Svg Icon-->
+											</span>
+										</div>
+										<!--end::SVG-->
+										<!--begin::Hero Body-->
+										<div class="card-body d-flex justify-content-center flex-column col-lg-6 px-8 py-20 px-lg-20 py-lg-40">
+											<!--begin::Heading-->
+											<h2 class="text-dark font-weight-bolder mb-8">Start creating goals and earn high profits</h2>
+											<!--end::Heading-->
+											<!--begin::Form-->
+											<form class="d-flex position-relative flex-row-fluid">
+												<div class="input-group shadow-sm">
+													<!--begin::Icon-->
+													
+													<!--end::Icon-->
+												</div>
+											</form>
+											<!--end::Form-->
+										</div>
+										<!--end::Hero Body-->
+										
+									</div>
+								</div>
+							<% } %>
+							<!--end::Container-->
+						</div>
+						<!--end::Entry-->
+					</div>
+					<!--end::Content-->
+				</div>
+				<!--end::Wrapper-->
+				
+			</div>
+			<!--end::Page-->
+		</div>
+		<!--end::Main-->
+		
+		
+		<!--begin::Scrolltop-->
+		<div id="kt_scrolltop" class="scrolltop">
+			<span class="svg-icon">
+				<!--begin::Svg Icon | path:assets/media/svg/icons/Navigation/Up-2.svg-->
+				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+					<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+						<polygon points="0 0 24 0 24 24 0 24" />
+						<rect fill="#000000" opacity="0.3" x="11" y="10" width="2" height="10" rx="1" />
+						<path d="M6.70710678,12.7071068 C6.31658249,13.0976311 5.68341751,13.0976311 5.29289322,12.7071068 C4.90236893,12.3165825 4.90236893,11.6834175 5.29289322,11.2928932 L11.2928932,5.29289322 C11.6714722,4.91431428 12.2810586,4.90106866 12.6757246,5.26284586 L18.6757246,10.7628459 C19.0828436,11.1360383 19.1103465,11.7686056 18.7371541,12.1757246 C18.3639617,12.5828436 17.7313944,12.6103465 17.3242754,12.2371541 L12.0300757,7.38413782 L6.70710678,12.7071068 Z" fill="#000000" fill-rule="nonzero" />
+					</g>
+				</svg>
+				<!--end::Svg Icon-->
+			</span>
+		</div>
+		<!--end::Scrolltop-->
+		
+		
+		<!--begin::Global Config(global config for global JS scripts)-->
+		<script>var KTAppSettings = { "breakpoints": { "sm": 576, "md": 768, "lg": 992, "xl": 1200, "xxl": 1200 }, "colors": { "theme": { "base": { "white": "#ffffff", "primary": "#663259", "secondary": "#E5EAEE", "success": "#1BC5BD", "info": "#8950FC", "warning": "#FFA800", "danger": "#F64E60", "light": "#F3F6F9", "dark": "#212121" }, "light": { "white": "#ffffff", "primary": "#F4E1F0", "secondary": "#ECF0F3", "success": "#C9F7F5", "info": "#EEE5FF", "warning": "#FFF4DE", "danger": "#FFE2E5", "light": "#F3F6F9", "dark": "#D6D6E0" }, "inverse": { "white": "#ffffff", "primary": "#ffffff", "secondary": "#212121", "success": "#ffffff", "info": "#ffffff", "warning": "#ffffff", "danger": "#ffffff", "light": "#464E5F", "dark": "#ffffff" } }, "gray": { "gray-100": "#F3F6F9", "gray-200": "#ECF0F3", "gray-300": "#E5EAEE", "gray-400": "#D6D6E0", "gray-500": "#B5B5C3", "gray-600": "#80808F", "gray-700": "#464E5F", "gray-800": "#1B283F", "gray-900": "#212121" } }, "font-family": "Poppins" };</script>
+		<!--end::Global Config-->
+		<!--begin::Global Theme Bundle(used by all pages)-->
+		<script src="/assets/plugins/global/plugins.bundle.js"></script>
+		<script src="/assets/plugins/custom/prismjs/prismjs.bundle.js"></script>
+		<script src="/assets/js/scripts.bundle.js"></script>
+		<!--end::Global Theme Bundle-->
+		<!--begin::Page Vendors(used by this page)-->
+		<script src="/assets/plugins/custom/fullcalendar/fullcalendar.bundle.js"></script>
+		
+		<script src="/assets/plugins/custom/datatables/datatables.bundle.js"></script>
+		<!--end::Page Vendors-->
+		<!--begin::Page Scripts(used by this page)-->
+		<script src="/assets/js/pages/widgets.js"></script>
+		<!--end::Page Scripts-->
+		<!--begin::Page Scripts(used by this page)-->
+		
+		<!--end::Page Scripts-->
+	</body>
+	<!--end::Body-->
+</html>

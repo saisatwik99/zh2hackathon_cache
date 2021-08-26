@@ -1,0 +1,567 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<!--begin::Head-->
+	<head><base href="">
+		<meta charset="utf-8" />
+		<title>Bill Payments</title>
+		<meta name="description" content="Bill Payments" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+		<!--begin::Fonts-->
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
+		<!--end::Fonts-->
+		<!--begin::Page Vendors Styles(used by this page)-->
+		<link href="/assets/plugins/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet" type="text/css" />
+		<!--end::Page Vendors Styles-->
+		<!--begin::Global Theme Styles(used by all pages)-->
+		<link href="/assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
+		<link href="/assets/plugins/custom/prismjs/prismjs.bundle.css" rel="stylesheet" type="text/css" />
+		<link href="/assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
+		<!--end::Global Theme Styles-->
+		<!--begin::Layout Themes(used by all pages)-->
+		<!--end::Layout Themes-->
+		<link rel="shortcut icon" href="assets/media/svg/logo.png" />
+	</head>
+	<!--end::Head-->
+	<!--begin::Body-->
+	<body id="kt_body" class="header-fixed header-mobile-fixed sidebar-enabled page-loading">
+		<!--begin::Main-->
+		<!--begin::Header Mobile-->
+		<div id="kt_header_mobile" class="header-mobile header-mobile-fixed">
+			<!--begin::Logo-->
+			<a href="/api/user/dashboard">
+				<img alt="Logo" src="/Main-Page/assets/images/cacheLogo.png" class="logo-default max-h-30px" />
+			</a>
+			<!--end::Logo-->
+			<!--begin::Toolbar-->
+			<div class="d-flex align-items-center">
+				<button class="btn btn-hover-icon-primary p-0 ml-2" id="kt_aside_mobile_toggle">
+					
+					<span class="svg-icon svg-icon-xl"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\legacy\metronic\theme\html\demo10\dist/../src/media/svg/icons\Text\Toggle-Left.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+						<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+							<rect x="0" y="0" width="24" height="24"/>
+							<path d="M2 11.5C2 12.3284 2.67157 13 3.5 13H20.5C21.3284 13 22 12.3284 22 11.5V11.5C22 10.6716 21.3284 10 20.5 10H3.5C2.67157 10 2 10.6716 2 11.5V11.5Z" fill="black"/>
+					  <path opacity="0.5" fill-rule="evenodd" clip-rule="evenodd" d="M9.5 20C8.67157 20 8 19.3284 8 18.5C8 17.6716 8.67157 17 9.5 17H20.5C21.3284 17 22 17.6716 22 18.5C22 19.3284 21.3284 20 20.5 20H9.5ZM15.5 6C14.6716 6 14 5.32843 14 4.5C14 3.67157 14.6716 3 15.5 3H20.5C21.3284 3 22 3.67157 22 4.5C22 5.32843 21.3284 6 20.5 6H15.5Z" fill="black"/>
+						</g>
+					</svg><!--end::Svg Icon--></span>
+				</button>
+			</div>
+			<!--end::Toolbar-->
+		</div>
+		<!--end::Header Mobile-->
+		<div class="d-flex flex-column flex-root">
+			<!--begin::Page-->
+			<div class="d-flex flex-row flex-column-fluid page">
+				<!--begin::Aside-->
+				<div class="aside aside-left d-flex flex-column" id="kt_aside">
+					<!--begin::Brand-->
+					<div class="aside-brand d-flex flex-column align-items-center flex-column-auto py-9">
+						<!--begin::Logo-->
+						<div class="btn p-0 symbol symbol-40 symbol-success" href="?page=index" id="kt_quick_user_toggle">
+							<div class="symbol-label">
+								<img alt="Logo" src="/assets/media/svg/avatars/009-boy-4.svg" class="h-75 align-self-end" />
+							</div>
+						</div>
+						<!--end::Logo-->
+					</div>
+					<!--end::Brand-->
+					<!--begin::Nav Wrapper-->
+					<div class="aside-nav d-flex flex-column align-items-center flex-column-fluid pb-10">
+						<!--begin::Nav-->
+						<ul class="nav flex-column">
+							<!--begin::Item-->
+							<li class="nav-item mb-2" data-toggle="tooltip" data-placement="right" data-container="body" data-boundary="window" title="Dashboard">
+								<a href="/api/user/dashboard" class="nav-link btn btn-icon btn-lg btn-borderless">
+									<span class="svg-icon svg-icon-xxl">
+										<!--begin::Svg Icon | path:assets/media/svg/icons/Layout/Layout-4-blocks.svg-->
+										<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+											<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+												<rect x="0" y="0" width="24" height="24" />
+												<rect fill="#000000" x="4" y="4" width="7" height="7" rx="1.5" />
+												<path d="M5.5,13 L9.5,13 C10.3284271,13 11,13.6715729 11,14.5 L11,18.5 C11,19.3284271 10.3284271,20 9.5,20 L5.5,20 C4.67157288,20 4,19.3284271 4,18.5 L4,14.5 C4,13.6715729 4.67157288,13 5.5,13 Z M14.5,4 L18.5,4 C19.3284271,4 20,4.67157288 20,5.5 L20,9.5 C20,10.3284271 19.3284271,11 18.5,11 L14.5,11 C13.6715729,11 13,10.3284271 13,9.5 L13,5.5 C13,4.67157288 13.6715729,4 14.5,4 Z M14.5,13 L18.5,13 C19.3284271,13 20,13.6715729 20,14.5 L20,18.5 C20,19.3284271 19.3284271,20 18.5,20 L14.5,20 C13.6715729,20 13,19.3284271 13,18.5 L13,14.5 C13,13.6715729 13.6715729,13 14.5,13 Z" fill="#000000" opacity="0.3" />
+											</g>
+										</svg>
+										<!--end::Svg Icon-->
+									</span>
+								</a>
+							</li>
+							<!--end::Item-->
+							<!--begin::Item-->
+							<li class="nav-item mb-2" data-toggle="tooltip" data-placement="right" data-container="body" data-boundary="window" title="Bill Payments">
+								<a href="/api/user/bill-payments" class="nav-link btn btn-icon btn-lg btn-borderless  active">
+									
+									
+									<span class="svg-icon svg-icon-xxl"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\legacy\metronic\theme\html\demo10\dist/../src/media/svg/icons\Home\Library.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+										<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+											<rect x="0" y="0" width="24" height="24"/>
+											<path d="M5,3 L6,3 C6.55228475,3 7,3.44771525 7,4 L7,20 C7,20.5522847 6.55228475,21 6,21 L5,21 C4.44771525,21 4,20.5522847 4,20 L4,4 C4,3.44771525 4.44771525,3 5,3 Z M10,3 L11,3 C11.5522847,3 12,3.44771525 12,4 L12,20 C12,20.5522847 11.5522847,21 11,21 L10,21 C9.44771525,21 9,20.5522847 9,20 L9,4 C9,3.44771525 9.44771525,3 10,3 Z" fill="#000000"/>
+											<rect fill="#000000" opacity="0.3" transform="translate(17.825568, 11.945519) rotate(-19.000000) translate(-17.825568, -11.945519) " x="16.3255682" y="2.94551858" width="3" height="18" rx="1"/>
+										</g>
+									</svg><!--end::Svg Icon--></span>
+								</a>
+							</li>
+							<!--end::Item-->
+							<!--begin::Item-->
+							<li class="nav-item mb-2" data-toggle="tooltip" data-placement="right" data-container="body" data-boundary="window" title="Accounts">
+								<a href="/api/account/home" class="nav-link btn btn-icon btn-lg btn-borderless">
+									<span class="svg-icon svg-icon-xxl">
+										<!--begin::Svg Icon | path:assets/media/svg/icons/Media/Equalizer.svg-->
+										<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+											<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+												<rect x="0" y="0" width="24" height="24" />
+												<rect fill="#000000" opacity="0.3" x="13" y="4" width="3" height="16" rx="1.5" />
+												<rect fill="#000000" x="8" y="9" width="3" height="11" rx="1.5" />
+												<rect fill="#000000" x="18" y="11" width="3" height="9" rx="1.5" />
+												<rect fill="#000000" x="3" y="13" width="3" height="7" rx="1.5" />
+											</g>
+										</svg>
+										<!--end::Svg Icon-->
+									</span>
+								</a>
+							</li>
+							<!--end::Item-->
+							<!--begin::Item-->
+							<li class="nav-item mb-2" data-toggle="tooltip" data-placement="right" data-container="body" data-boundary="window" title="Goals">
+								<a href="/api/goals/getAllGoals" class="nav-link btn btn-icon btn-lg btn-borderless">
+									
+									<span class="svg-icon svg-icon-xxl"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\legacy\metronic\theme\html\demo10\dist/../src/media/svg/icons\Cooking\Dish.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+										<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+											<rect x="0" y="0" width="24" height="24"/>
+											<path d="M12,21 C7.02943725,21 3,16.9705627 3,12 C3,7.02943725 7.02943725,3 12,3 C16.9705627,3 21,7.02943725 21,12 C21,16.9705627 16.9705627,21 12,21 Z M12,18 C15.3137085,18 18,15.3137085 18,12 C18,8.6862915 15.3137085,6 12,6 C8.6862915,6 6,8.6862915 6,12 C6,15.3137085 8.6862915,18 12,18 Z" fill="#000000"/>
+											<path d="M12,16 C14.209139,16 16,14.209139 16,12 C16,9.790861 14.209139,8 12,8 C9.790861,8 8,9.790861 8,12 C8,14.209139 9.790861,16 12,16 Z" fill="#000000" opacity="0.3"/>
+										</g>
+									</svg><!--end::Svg Icon--></span>
+								</a>
+							</li>
+							<!--end::Item-->
+							
+						</ul>
+						<!--end::Nav-->
+					</div>
+					<!--end::Nav Wrapper-->
+					<!--begin::Footer-->
+					<div class="aside-footer d-flex flex-column align-items-center flex-column-auto py-8">
+						
+                        <form action="/api/user/logout" id="logout" method="post">
+
+                        </form>
+						
+						<a onclick="document.getElementById('logout').submit();" class="btn btn-icon btn-lg btn-borderless mb-1" id="kt_quick_panel_toggle" data-toggle="tooltip" data-placement="right" data-container="body" data-boundary="window" title="Sign Out">
+							
+                            <span class="svg-icon svg-icon-xxl"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\legacy\metronic\theme\html\demo10\dist/../src/media/svg/icons\Navigation\Sign-out.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <rect x="0" y="0" width="24" height="24"/>
+                                    <path d="M14.0069431,7.00607258 C13.4546584,7.00607258 13.0069431,6.55855153 13.0069431,6.00650634 C13.0069431,5.45446114 13.4546584,5.00694009 14.0069431,5.00694009 L15.0069431,5.00694009 C17.2160821,5.00694009 19.0069431,6.7970243 19.0069431,9.00520507 L19.0069431,15.001735 C19.0069431,17.2099158 17.2160821,19 15.0069431,19 L3.00694311,19 C0.797804106,19 -0.993056895,17.2099158 -0.993056895,15.001735 L-0.993056895,8.99826498 C-0.993056895,6.7900842 0.797804106,5 3.00694311,5 L4.00694793,5 C4.55923268,5 5.00694793,5.44752105 5.00694793,5.99956624 C5.00694793,6.55161144 4.55923268,6.99913249 4.00694793,6.99913249 L3.00694311,6.99913249 C1.90237361,6.99913249 1.00694311,7.89417459 1.00694311,8.99826498 L1.00694311,15.001735 C1.00694311,16.1058254 1.90237361,17.0008675 3.00694311,17.0008675 L15.0069431,17.0008675 C16.1115126,17.0008675 17.0069431,16.1058254 17.0069431,15.001735 L17.0069431,9.00520507 C17.0069431,7.90111468 16.1115126,7.00607258 15.0069431,7.00607258 L14.0069431,7.00607258 Z" fill="#000000" fill-rule="nonzero" opacity="0.3" transform="translate(9.006943, 12.000000) scale(-1, 1) rotate(-90.000000) translate(-9.006943, -12.000000) "/>
+                                    <rect fill="#000000" opacity="0.3" transform="translate(14.000000, 12.000000) rotate(-270.000000) translate(-14.000000, -12.000000) " x="13" y="6" width="2" height="12" rx="1"/>
+                                    <path d="M21.7928932,9.79289322 C22.1834175,9.40236893 22.8165825,9.40236893 23.2071068,9.79289322 C23.5976311,10.1834175 23.5976311,10.8165825 23.2071068,11.2071068 L20.2071068,14.2071068 C19.8165825,14.5976311 19.1834175,14.5976311 18.7928932,14.2071068 L15.7928932,11.2071068 C15.4023689,10.8165825 15.4023689,10.1834175 15.7928932,9.79289322 C16.1834175,9.40236893 16.8165825,9.40236893 17.2071068,9.79289322 L19.5,12.0857864 L21.7928932,9.79289322 Z" fill="#000000" fill-rule="nonzero" transform="translate(19.500000, 12.000000) rotate(-90.000000) translate(-19.500000, -12.000000) "/>
+                                </g>
+                            </svg><!--end::Svg Icon--></span>
+						</a>
+						<!--end::Quick Panel-->
+					</div>
+					<!--end::Footer-->
+				</div>
+				<!--end::Aside-->
+				<!--begin::Wrapper-->
+				<div class="d-flex flex-column flex-row-fluid wrapper" id="kt_wrapper">
+					<!--begin::Header-->
+					<div id="kt_header" class="header header-fixed">
+						<!--begin::Header Wrapper-->
+						<div class="header-wrapper rounded-top-xl d-flex flex-grow-1 align-items-center">
+							<!--begin::Container-->
+							<div class="container-fluid d-flex align-items-center justify-content-end justify-content-lg-between flex-wrap">
+								<!--begin::Menu Wrapper-->
+								<div class="header-menu-wrapper header-menu-wrapper-left" id="kt_header_menu_wrapper">
+									<!--begin::Menu-->
+									<div id="kt_header_menu" class="header-menu header-menu-mobile header-menu-layout-default">
+										<!--begin::Nav-->
+										<ul class="menu-nav">
+											<li class="menu-item menu-item-open menu-item-here menu-item-submenu menu-item-rel menu-item-open menu-item-here" aria-haspopup="true">
+												<a href="javascript:;" class="menu-link menu-toggle">
+													<span class="menu-text">Bill Payments</span>
+													<span class="menu-desc"></span>
+													<i class="menu-arrow"></i>
+												</a>
+											</li>
+										</ul>
+										<!--end::Nav-->
+									</div>
+									<!--end::Menu-->
+								</div>
+								<!--end::Menu Wrapper-->
+							</div>
+							<!--end::Container-->
+						</div>
+						<!--end::Header Wrapper-->
+					</div>
+					<!--end::Header-->
+					<!--begin::Content-->
+					<div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+						<!--begin::Subheader-->
+						
+						<!--end::Subheader-->
+						<!--begin::Entry-->
+						<div class="d-flex flex-column-fluid">
+							<!--begin::Container-->
+							<div class="container-fluid">
+								
+								
+								<div class="row">
+									<div class="col-md-12">
+										<!--begin::Card-->
+										<div class="card card-custom">
+											<div class="card-header">
+												<div class="card-title">
+													<h3 class="card-label">Recharges, Bill Payments</h3>
+												</div>
+											</div>
+											<div class="card-body">
+												<div class="row">
+													<div class="col-md-2 d-flex align-items-stretch">
+														<a href="/api/user/bill-payments/mobile">
+															<div class="d-flex flex-grow-1 align-items-center bg-hover-light p-4 rounded">
+																<div class="mr-4 flex-shrink-0 text-center" style="width: 40px;">
+																	<div class="symbol symbol-40 symbol-light-warning mr-5">
+																		<span class="symbol-label">
+																			<span class="svg-icon svg-icon-warning svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\legacy\metronic\theme\html\demo10\dist/../src/media/svg/icons\Devices\iPhone-X.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+																				<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+																					<rect x="0" y="0" width="24" height="24"/>
+																					<path d="M8,2.5 C7.30964406,2.5 6.75,3.05964406 6.75,3.75 L6.75,20.25 C6.75,20.9403559 7.30964406,21.5 8,21.5 L16,21.5 C16.6903559,21.5 17.25,20.9403559 17.25,20.25 L17.25,3.75 C17.25,3.05964406 16.6903559,2.5 16,2.5 L8,2.5 Z" fill="#000000" opacity="0.3"/>
+																					<path d="M8,2.5 C7.30964406,2.5 6.75,3.05964406 6.75,3.75 L6.75,20.25 C6.75,20.9403559 7.30964406,21.5 8,21.5 L16,21.5 C16.6903559,21.5 17.25,20.9403559 17.25,20.25 L17.25,3.75 C17.25,3.05964406 16.6903559,2.5 16,2.5 L8,2.5 Z M8,1 L16,1 C17.5187831,1 18.75,2.23121694 18.75,3.75 L18.75,20.25 C18.75,21.7687831 17.5187831,23 16,23 L8,23 C6.48121694,23 5.25,21.7687831 5.25,20.25 L5.25,3.75 C5.25,2.23121694 6.48121694,1 8,1 Z M9.5,1.75 L14.5,1.75 C14.7761424,1.75 15,1.97385763 15,2.25 L15,3.25 C15,3.52614237 14.7761424,3.75 14.5,3.75 L9.5,3.75 C9.22385763,3.75 9,3.52614237 9,3.25 L9,2.25 C9,1.97385763 9.22385763,1.75 9.5,1.75 Z" fill="#000000" fill-rule="nonzero"/>
+																				</g>
+																			</svg><!--end::Svg Icon--></span>
+																		</span>
+																	</div>
+																</div>
+																<div class="text-muted">Mobile Recharge</div>
+															</div>
+														</a>
+													</div>
+                                                    <div class="col-md-2 d-flex align-items-stretch">
+														<a href="/api/user/bill-payments/mobile">
+														<div class="d-flex flex-grow-1 align-items-center bg-hover-light p-4 rounded">
+															<div class="mr-4 flex-shrink-0 text-center" style="width: 40px;">
+																<div class="symbol symbol-40 symbol-light-primary mr-5">
+                                                                    <span class="symbol-label">
+                                                                        <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\legacy\metronic\theme\html\demo10\dist/../src/media/svg/icons\Home\Bulb1.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                                                <rect x="0" y="0" width="24" height="24"/>
+                                                                                <circle fill="#000000" opacity="0.3" cx="12" cy="9" r="8"/>
+                                                                                <path d="M14.5297296,11 L9.46184488,11 L11.9758349,17.4645458 L14.5297296,11 Z M10.5679953,19.3624463 L6.53815512,9 L17.4702704,9 L13.3744964,19.3674279 L11.9759405,18.814912 L10.5679953,19.3624463 Z" fill="#000000" fill-rule="nonzero" opacity="0.3"/>
+                                                                                <path d="M10,22 L14,22 L14,22 C14,23.1045695 13.1045695,24 12,24 L12,24 C10.8954305,24 10,23.1045695 10,22 Z" fill="#000000" opacity="0.3"/>
+                                                                                <path d="M9,20 C8.44771525,20 8,19.5522847 8,19 C8,18.4477153 8.44771525,18 9,18 C8.44771525,18 8,17.5522847 8,17 C8,16.4477153 8.44771525,16 9,16 L15,16 C15.5522847,16 16,16.4477153 16,17 C16,17.5522847 15.5522847,18 15,18 C15.5522847,18 16,18.4477153 16,19 C16,19.5522847 15.5522847,20 15,20 C15.5522847,20 16,20.4477153 16,21 C16,21.5522847 15.5522847,22 15,22 L9,22 C8.44771525,22 8,21.5522847 8,21 C8,20.4477153 8.44771525,20 9,20 Z" fill="#000000"/>
+                                                                            </g>
+                                                                        </svg><!--end::Svg Icon--></span>
+                                                                    </span>
+                                                                </div>
+															</div>
+															<div class="text-muted">Electricity</div>
+														</div>
+														</a>
+													</div>
+                                                    <div class="col-md-2 d-flex align-items-stretch">
+														<a href="/api/user/bill-payments/mobile">
+														<div class="d-flex flex-grow-1 align-items-center bg-hover-light p-4 rounded">
+															<div class="mr-4 flex-shrink-0 text-center" style="width: 40px;">
+																<div class="symbol symbol-40 symbol-light-success mr-5">
+                                                                    <span class="symbol-label">
+                                                                        <span class="svg-icon svg-icon-success svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\legacy\metronic\theme\html\demo10\dist/../src/media/svg/icons\Devices\Phone.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                                                <rect x="0" y="0" width="24" height="24"/>
+                                                                                <path d="M7.13888889,4 L7.13888889,19 L16.8611111,19 L16.8611111,4 L7.13888889,4 Z M7.83333333,1 L16.1666667,1 C17.5729473,1 18.25,1.98121694 18.25,3.5 L18.25,20.5 C18.25,22.0187831 17.5729473,23 16.1666667,23 L7.83333333,23 C6.42705272,23 5.75,22.0187831 5.75,20.5 L5.75,3.5 C5.75,1.98121694 6.42705272,1 7.83333333,1 Z" fill="#000000" fill-rule="nonzero"/>
+                                                                                <polygon fill="#000000" opacity="0.3" points="7 4 7 19 17 19 17 4"/>
+                                                                                <circle fill="#000000" cx="12" cy="21" r="1"/>
+                                                                            </g>
+                                                                        </svg><!--end::Svg Icon--></span>
+                                                                    </span>
+                                                                </div>
+															</div>
+															<div class="text-muted">Mobile Postpaid</div>
+														</div>
+														</a>
+													</div>
+                                                    <div class="col-md-2 d-flex align-items-stretch">
+														<a href="/api/user/bill-payments/mobile">
+														<div class="d-flex flex-grow-1 align-items-center bg-hover-light p-4 rounded">
+															<div class="mr-4 flex-shrink-0 text-center" style="width: 40px;">
+																<div class="symbol symbol-40 symbol-light-danger mr-5">
+                                                                    <span class="symbol-label">
+                                                                        <span class="svg-icon svg-icon-danger svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\legacy\metronic\theme\html\demo10\dist/../src/media/svg/icons\Shopping\Credit-card.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                                                <rect x="0" y="0" width="24" height="24"/>
+                                                                                <rect fill="#000000" opacity="0.3" x="2" y="5" width="20" height="14" rx="2"/>
+                                                                                <rect fill="#000000" x="2" y="8" width="20" height="3"/>
+                                                                                <rect fill="#000000" opacity="0.3" x="16" y="14" width="4" height="2" rx="1"/>
+                                                                            </g>
+                                                                        </svg><!--end::Svg Icon--></span>
+                                                                    </span>
+                                                                </div>
+															</div>
+															<div class="text-muted">Credit Card Bill</div>
+														</div>
+														</a>
+													</div>
+                                                    <div class="col-md-2 d-flex align-items-stretch">
+														<a href="/api/user/bill-payments/mobile">
+														<div class="d-flex flex-grow-1 align-items-center bg-hover-light p-4 rounded">
+															<div class="mr-4 flex-shrink-0 text-center" style="width: 40px;">
+																<div class="symbol symbol-40 symbol-light-info mr-5">
+                                                                    <span class="symbol-label">
+                                                                        <span class="svg-icon svg-icon-info svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\legacy\metronic\theme\html\demo10\dist/../src/media/svg/icons\Electric\Gas-stove.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                                                <rect x="0" y="0" width="24" height="24"/>
+                                                                                <path d="M21,10 L3,10 L3,5 C3,4.44771525 3.44771525,4 4,4 L20,4 C20.5522847,4 21,4.44771525 21,5 L21,10 Z M16,6 C15.4477153,6 15,6.44771525 15,7 C15,7.55228475 15.4477153,8 16,8 C16.5522847,8 17,7.55228475 17,7 C17,6.44771525 16.5522847,6 16,6 Z M8,6 C8.55228475,6 9,6.44771525 9,7 C9,7.55228475 8.55228475,8 8,8 C7.44771525,8 7,7.55228475 7,7 C7,6.44771525 7.44771525,6 8,6 Z M21,11 L21,21 C21,21.5522847 20.5522847,22 20,22 L4,22 C3.44771525,22 3,21.5522847 3,21 L3,11 L21,11 Z M8,13 C7.44771525,13 7,13.5223345 7,14.1666667 L7,18.8333333 C7,19.4776655 7.44771525,20 8,20 L16,20 C16.5522847,20 17,19.4776655 17,18.8333333 L17,14.1666667 C17,13.5223345 16.5522847,13 16,13 L8,13 Z" fill="#000000"/>
+                                                                                <path d="M6,3 L10,3 C10.5522847,3 11,3.44771525 11,4 L5,4 C5,3.44771525 5.44771525,3 6,3 Z M16,3 L18,3 C18.5522847,3 19,3.44771525 19,4 L15,4 C15,3.44771525 15.4477153,3 16,3 Z" fill="#000000" opacity="0.3"/>
+                                                                            </g>
+                                                                        </svg><!--end::Svg Icon--></span>
+                                                                    </span>
+                                                                </div>
+															</div>
+															<div class="text-muted">Gas Cylinder</div>
+														</div>
+														</a>
+													</div>
+                                                    <div class="col-md-2 d-flex align-items-stretch">
+														<a href="/api/user/bill-payments/mobile">
+														<div class="d-flex flex-grow-1 align-items-center bg-hover-light p-4 rounded">
+															<div class="mr-4 flex-shrink-0 text-center" style="width: 40px;">
+																<div class="symbol symbol-40 symbol-light-warning mr-5">
+                                                                    <span class="symbol-label">
+                                                                        <span class="svg-icon svg-icon-warning svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\legacy\metronic\theme\html\demo10\dist/../src/media/svg/icons\Home\Water-mixer.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                                                <polygon points="0 0 24 0 24 24 0 24"/>
+                                                                                <path d="M8,18 L8,18 C10.209139,18 12,19.790861 12,22 L4,22 L4,22 C4,19.790861 5.790861,18 8,18 Z" fill="#000000" opacity="0.3"/>
+                                                                                <path d="M7,12.1260175 L7,8 C7,4.6862915 9.6862915,2 13,2 C16.3137085,2 19,4.6862915 19,8 L19,9 L17,9 L17,8 C17,5.790861 15.209139,4 13,4 C10.790861,4 9,5.790861 9,8 L9,12.1260175 C10.7252272,12.5700603 12,14.1361606 12,16 C12,18.209139 10.209139,20 8,20 C5.790861,20 4,18.209139 4,16 C4,14.1361606 5.27477279,12.5700603 7,12.1260175 Z M8,18 C9.1045695,18 10,17.1045695 10,16 C10,14.8954305 9.1045695,14 8,14 C6.8954305,14 6,14.8954305 6,16 C6,17.1045695 6.8954305,18 8,18 Z" fill="#000000"/>
+                                                                                <path d="M18,17 C19.1045695,17 20,16.1045695 20,15 C20,14.2636203 19.3333333,13.2636203 18,12 C16.6666667,13.2636203 16,14.2636203 16,15 C16,16.1045695 16.8954305,17 18,17 Z" fill="#000000" opacity="0.3"/>
+                                                                            </g>
+                                                                        </svg><!--end::Svg Icon--></span>
+                                                                    </span>
+                                                                </div>
+															</div>
+															<div class="text-muted">Water Bill</div>
+														</div>
+														</a>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-md-2 d-flex align-items-stretch">
+														<a href="/api/user/bill-payments/mobile">
+														<div class="d-flex flex-grow-1 align-items-center bg-hover-light p-4 rounded">
+															<div class="mr-4 flex-shrink-0 text-center" style="width: 40px;">
+																<div class="symbol symbol-40 symbol-light-primary mr-5">
+                                                                    <span class="symbol-label">
+                                                                        <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\legacy\metronic\theme\html\demo10\dist/../src/media/svg/icons\Devices\Router1.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                                                <rect x="0" y="0" width="24" height="24"/>
+                                                                                <path d="M15,15 L15,10 C15,9.44771525 15.4477153,9 16,9 C16.5522847,9 17,9.44771525 17,10 L17,15 L20,15 C21.1045695,15 22,15.8954305 22,17 L22,19 C22,20.1045695 21.1045695,21 20,21 L4,21 C2.8954305,21 2,20.1045695 2,19 L2,17 C2,15.8954305 2.8954305,15 4,15 L15,15 Z M5,17 C4.44771525,17 4,17.4477153 4,18 C4,18.5522847 4.44771525,19 5,19 L10,19 C10.5522847,19 11,18.5522847 11,18 C11,17.4477153 10.5522847,17 10,17 L5,17 Z" fill="#000000"/>
+                                                                                <path d="M20.5,7.7155722 L19.2133304,8.85714286 C18.425346,7.82897283 17.2569914,7.22292937 15.9947545,7.22292937 C14.7366498,7.22292937 13.571742,7.82497398 12.7836854,8.84737587 L11.5,7.70192243 C12.6016042,6.27273291 14.2349886,5.42857143 15.9947545,5.42857143 C17.7603123,5.42857143 19.3985009,6.27832502 20.5,7.7155722 Z M23.5,5.46053062 L22.1362873,6.57142857 C20.629466,4.78945909 18.4012066,3.73944576 15.9963045,3.73944576 C13.5947271,3.73944576 11.3692392,4.78653417 9.8623752,6.56427829 L8.5,5.45180053 C10.340077,3.28094376 13.0626024,2 15.9963045,2 C18.934073,2 21.6599771,3.28451636 23.5,5.46053062 Z" fill="#000000" fill-rule="nonzero" opacity="0.3"/>
+                                                                            </g>
+                                                                        </svg><!--end::Svg Icon--></span>
+                                                                    </span>
+                                                                </div>
+															</div>
+															<div class="text-muted">Boardband</div>
+														</div>
+														</a>
+													</div>
+                                                    <div class="col-md-2 d-flex align-items-stretch">
+														<a href="/api/user/bill-payments/mobile">
+														<div class="d-flex flex-grow-1 align-items-center bg-hover-light p-4 rounded">
+															<div class="mr-4 flex-shrink-0 text-center" style="width: 40px;">
+																<div class="symbol symbol-40 symbol-light-success mr-5">
+                                                                    <span class="symbol-label">
+                                                                        <span class="svg-icon svg-icon-success svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\legacy\metronic\theme\html\demo10\dist/../src/media/svg/icons\Devices\Display3.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                                                <rect x="0" y="0" width="24" height="24"/>
+                                                                                <polygon fill="#000000" opacity="0.3" points="5 7 5 15 19 15 19 7"/>
+                                                                                <path d="M11,19 L11,16 C11,15.4477153 11.4477153,15 12,15 C12.5522847,15 13,15.4477153 13,16 L13,19 L14.5,19 C14.7761424,19 15,19.2238576 15,19.5 C15,19.7761424 14.7761424,20 14.5,20 L9.5,20 C9.22385763,20 9,19.7761424 9,19.5 C9,19.2238576 9.22385763,19 9.5,19 L11,19 Z" fill="#000000" opacity="0.3"/>
+                                                                                <path d="M5,7 L5,15 L19,15 L19,7 L5,7 Z M5.25,5 L18.75,5 C19.9926407,5 21,5.8954305 21,7 L21,15 C21,16.1045695 19.9926407,17 18.75,17 L5.25,17 C4.00735931,17 3,16.1045695 3,15 L3,7 C3,5.8954305 4.00735931,5 5.25,5 Z" fill="#000000" fill-rule="nonzero"/>
+                                                                            </g>
+                                                                        </svg><!--end::Svg Icon--></span>
+                                                                    </span>
+                                                                </div>
+															</div>
+															<div class="text-muted">Cable TV</div>
+														</div>
+														</a>
+													</div>
+													<div class="col-md-2 d-flex align-items-stretch">
+														<a href="/api/user/bill-payments/mobile">
+														<div class="d-flex flex-grow-1 align-items-center bg-hover-light p-4 rounded">
+															<div class="mr-4 flex-shrink-0 text-center" style="width: 40px;">
+																<div class="symbol symbol-40 symbol-light-danger mr-5">
+                                                                    <span class="symbol-label">
+                                                                        <span class="svg-icon svg-icon-danger svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\legacy\metronic\theme\html\demo10\dist/../src/media/svg/icons\General\User.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                                                <polygon points="0 0 24 0 24 24 0 24"/>
+                                                                                <path d="M12,11 C9.790861,11 8,9.209139 8,7 C8,4.790861 9.790861,3 12,3 C14.209139,3 16,4.790861 16,7 C16,9.209139 14.209139,11 12,11 Z" fill="#000000" fill-rule="nonzero" opacity="0.3"/>
+                                                                                <path d="M3.00065168,20.1992055 C3.38825852,15.4265159 7.26191235,13 11.9833413,13 C16.7712164,13 20.7048837,15.2931929 20.9979143,20.2 C21.0095879,20.3954741 20.9979143,21 20.2466999,21 C16.541124,21 11.0347247,21 3.72750223,21 C3.47671215,21 2.97953825,20.45918 3.00065168,20.1992055 Z" fill="#000000" fill-rule="nonzero"/>
+                                                                            </g>
+                                                                        </svg><!--end::Svg Icon--></span>
+                                                                    </span>
+                                                                </div>
+															</div>
+															<div class="text-muted">Insurance Premium</div>
+														</div>
+														</a>
+													</div>
+													
+												</div>
+												
+											</div>
+										</div>
+										<!--end::Card-->
+									</div>
+								</div>
+                                <div class="row">
+									<div class="col-md-12">
+										<!--begin::Card-->
+										<div class="card card-custom">
+											<div class="card-header">
+												<div class="card-title">
+													<h3 class="card-label">Travel, Shopping</h3>
+												</div>
+											</div>
+											<div class="card-body">
+												<div class="row">
+
+                                                    <div class="col-md-2 d-flex align-items-stretch">
+														<a href="/api/user/bill-payments/mobile">
+														<div class="d-flex flex-grow-1 align-items-center bg-hover-light p-4 rounded">
+															<div class="mr-4 flex-shrink-0 text-center" style="width: 40px;">
+																<div class="symbol symbol-40 symbol-light-success mr-5">
+                                                                    <span class="symbol-label">
+                                                                        <span class="svg-icon svg-icon-success svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\legacy\metronic\theme\html\demo10\dist/../src/media/svg/icons\Map\Direction2.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                                                <rect x="0" y="0" width="24" height="24"/>
+                                                                                <path d="M14,13.381038 L14,3.47213595 L7.99460483,15.4829263 L14,13.381038 Z M4.88230018,17.2353996 L13.2844582,0.431083506 C13.4820496,0.0359007077 13.9625881,-0.12427877 14.3577709,0.0733126292 C14.5125928,0.15072359 14.6381308,0.276261584 14.7155418,0.431083506 L23.1176998,17.2353996 C23.3152912,17.6305824 23.1551117,18.1111209 22.7599289,18.3087123 C22.5664522,18.4054506 22.3420471,18.4197165 22.1378777,18.3482572 L14,15.5 L5.86212227,18.3482572 C5.44509941,18.4942152 4.98871325,18.2744737 4.84275525,17.8574509 C4.77129597,17.6532815 4.78556182,17.4288764 4.88230018,17.2353996 Z" fill="#000000" fill-rule="nonzero" transform="translate(14.000087, 9.191034) rotate(-315.000000) translate(-14.000087, -9.191034) "/>
+                                                                            </g>
+                                                                        </svg><!--end::Svg Icon--></span>
+                                                                    </span>
+                                                                </div>
+															</div>
+															<div class="text-muted">Fligts & Bus</div>
+														</div>
+														</a>
+													</div>
+                                                    <div class="col-md-2 d-flex align-items-stretch">
+														<a href="/api/user/bill-payments/mobile">
+														<div class="d-flex flex-grow-1 align-items-center bg-hover-light p-4 rounded">
+															<div class="mr-4 flex-shrink-0 text-center" style="width: 40px;">
+																<div class="symbol symbol-40 symbol-light-danger mr-5">
+                                                                    <span class="symbol-label">
+                                                                        <span class="svg-icon svg-icon-danger svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\legacy\metronic\theme\html\demo10\dist/../src/media/svg/icons\Shopping\Cart1.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                                                <rect x="0" y="0" width="24" height="24"/>
+                                                                                <path d="M18.1446364,11.84388 L17.4471627,16.0287218 C17.4463569,16.0335568 17.4455155,16.0383857 17.4446387,16.0432083 C17.345843,16.5865846 16.8252597,16.9469884 16.2818833,16.8481927 L4.91303792,14.7811299 C4.53842737,14.7130189 4.23500006,14.4380834 4.13039941,14.0719812 L2.30560137,7.68518803 C2.28007524,7.59584656 2.26712532,7.50338343 2.26712532,7.4104669 C2.26712532,6.85818215 2.71484057,6.4104669 3.26712532,6.4104669 L16.9929851,6.4104669 L17.606173,3.78251876 C17.7307772,3.24850086 18.2068633,2.87071314 18.7552257,2.87071314 L20.8200821,2.87071314 C21.4717328,2.87071314 22,3.39898039 22,4.05063106 C22,4.70228173 21.4717328,5.23054898 20.8200821,5.23054898 L19.6915238,5.23054898 L18.1446364,11.84388 Z" fill="#000000" opacity="0.3"/>
+                                                                                <path d="M6.5,21 C5.67157288,21 5,20.3284271 5,19.5 C5,18.6715729 5.67157288,18 6.5,18 C7.32842712,18 8,18.6715729 8,19.5 C8,20.3284271 7.32842712,21 6.5,21 Z M15.5,21 C14.6715729,21 14,20.3284271 14,19.5 C14,18.6715729 14.6715729,18 15.5,18 C16.3284271,18 17,18.6715729 17,19.5 C17,20.3284271 16.3284271,21 15.5,21 Z" fill="#000000"/>
+                                                                            </g>
+                                                                        </svg><!--end::Svg Icon--></span>
+                                                                    </span>
+                                                                </div>
+															</div>
+															<div class="text-muted">Shopping</div>
+														</div>
+														</a>
+													</div>
+                                                    <div class="col-md-2 d-flex align-items-stretch">
+														<a href="/api/user/bill-payments/mobile">
+														<div class="d-flex flex-grow-1 align-items-center bg-hover-light p-4 rounded">
+															<div class="mr-4 flex-shrink-0 text-center" style="width: 40px;">
+																<div class="symbol symbol-40 symbol-light-info mr-5">
+                                                                    <span class="symbol-label">
+                                                                        <span class="svg-icon svg-icon-info svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\legacy\metronic\theme\html\demo10\dist/../src/media/svg/icons\Food\Burger.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                                                <rect x="0" y="0" width="24" height="24"/>
+                                                                                <path d="M15,15 L15.9974233,16.1399123 C16.3611054,16.555549 16.992868,16.5976665 17.4085046,16.2339844 C17.4419154,16.20475 17.4733423,16.1733231 17.5025767,16.1399123 L18.5,15 L21,15 C20.4185426,17.9072868 17.865843,20 14.9009805,20 L9.09901951,20 C6.13415704,20 3.58145737,17.9072868 3,15 L15,15 Z" fill="#000000"/>
+                                                                                <path d="M21,9 L3,9 L3,9 C3.58145737,6.09271316 6.13415704,4 9.09901951,4 L14.9009805,4 C17.865843,4 20.4185426,6.09271316 21,9 Z" fill="#000000"/>
+                                                                                <rect fill="#000000" opacity="0.3" x="2" y="11" width="20" height="2" rx="1"/>
+                                                                            </g>
+                                                                        </svg><!--end::Svg Icon--></span>
+                                                                    </span>
+                                                                </div>
+															</div>
+															<div class="text-muted">Food</div>
+														</div>
+														</a>
+													</div>
+                                                    <div class="col-md-2 d-flex align-items-stretch">
+														<a href="/api/user/bill-payments/mobile">
+														<div class="d-flex flex-grow-1 align-items-center bg-hover-light p-4 rounded">
+															<div class="mr-4 flex-shrink-0 text-center" style="width: 40px;">
+																<div class="symbol symbol-40 symbol-light-warning mr-5">
+                                                                    <span class="symbol-label">
+                                                                        <span class="svg-icon svg-icon-warning svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\legacy\metronic\theme\html\demo10\dist/../src/media/svg/icons\Devices\Headphones.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                                                <rect x="0" y="0" width="24" height="24"/>
+                                                                                <path d="M19,16 L19,12 C19,8.13400675 15.8659932,5 12,5 C8.13400675,5 5,8.13400675 5,12 L5,16 L19,16 Z M21,16 L3,16 L3,12 C3,7.02943725 7.02943725,3 12,3 C16.9705627,3 21,7.02943725 21,12 L21,16 Z" fill="#000000" fill-rule="nonzero" opacity="0.3"/>
+                                                                                <path d="M5,14 L6,14 C7.1045695,14 8,14.8954305 8,16 L8,19 C8,20.1045695 7.1045695,21 6,21 L5,21 C3.8954305,21 3,20.1045695 3,19 L3,16 C3,14.8954305 3.8954305,14 5,14 Z M18,14 L19,14 C20.1045695,14 21,14.8954305 21,16 L21,19 C21,20.1045695 20.1045695,21 19,21 L18,21 C16.8954305,21 16,20.1045695 16,19 L16,16 C16,14.8954305 16.8954305,14 18,14 Z" fill="#000000"/>
+                                                                            </g>
+                                                                        </svg><!--end::Svg Icon--></span>
+                                                                    </span>
+                                                                </div>
+															</div>
+															<div class="text-muted">Entertainment</div>
+														</div>
+														</a>
+													</div>
+                                                    
+												</div>
+											</div>
+										</div>
+										<!--end::Card-->
+									</div>
+								</div>
+							</div>
+							<!--end::Container-->
+						</div>
+						<!--end::Entry-->
+					</div>
+					<!--end::Content-->
+					<!--begin::Footer-->
+					
+					<!--end::Footer-->
+				</div>
+				<!--end::Wrapper-->
+				
+			</div>
+			<!--end::Page-->
+		</div>
+		<!--end::Main-->
+		
+		
+		<!--begin::Scrolltop-->
+		<div id="kt_scrolltop" class="scrolltop">
+			<span class="svg-icon">
+				<!--begin::Svg Icon | path:assets/media/svg/icons/Navigation/Up-2.svg-->
+				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+					<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+						<polygon points="0 0 24 0 24 24 0 24" />
+						<rect fill="#000000" opacity="0.3" x="11" y="10" width="2" height="10" rx="1" />
+						<path d="M6.70710678,12.7071068 C6.31658249,13.0976311 5.68341751,13.0976311 5.29289322,12.7071068 C4.90236893,12.3165825 4.90236893,11.6834175 5.29289322,11.2928932 L11.2928932,5.29289322 C11.6714722,4.91431428 12.2810586,4.90106866 12.6757246,5.26284586 L18.6757246,10.7628459 C19.0828436,11.1360383 19.1103465,11.7686056 18.7371541,12.1757246 C18.3639617,12.5828436 17.7313944,12.6103465 17.3242754,12.2371541 L12.0300757,7.38413782 L6.70710678,12.7071068 Z" fill="#000000" fill-rule="nonzero" />
+					</g>
+				</svg>
+				<!--end::Svg Icon-->
+			</span>
+		</div>
+		
+		<script>var KTAppSettings = { "breakpoints": { "sm": 576, "md": 768, "lg": 992, "xl": 1200, "xxl": 1200 }, "colors": { "theme": { "base": { "white": "#ffffff", "primary": "#663259", "secondary": "#E5EAEE", "success": "#1BC5BD", "info": "#8950FC", "warning": "#FFA800", "danger": "#F64E60", "light": "#F3F6F9", "dark": "#212121" }, "light": { "white": "#ffffff", "primary": "#F4E1F0", "secondary": "#ECF0F3", "success": "#C9F7F5", "info": "#EEE5FF", "warning": "#FFF4DE", "danger": "#FFE2E5", "light": "#F3F6F9", "dark": "#D6D6E0" }, "inverse": { "white": "#ffffff", "primary": "#ffffff", "secondary": "#212121", "success": "#ffffff", "info": "#ffffff", "warning": "#ffffff", "danger": "#ffffff", "light": "#464E5F", "dark": "#ffffff" } }, "gray": { "gray-100": "#F3F6F9", "gray-200": "#ECF0F3", "gray-300": "#E5EAEE", "gray-400": "#D6D6E0", "gray-500": "#B5B5C3", "gray-600": "#80808F", "gray-700": "#464E5F", "gray-800": "#1B283F", "gray-900": "#212121" } }, "font-family": "Poppins" };</script>
+		<!--end::Global Config-->
+		<!--begin::Global Theme Bundle(used by all pages)-->
+		<script src="/assets/plugins/global/plugins.bundle.js"></script>
+		<script src="/assets/plugins/custom/prismjs/prismjs.bundle.js"></script>
+		<script src="/assets/js/scripts.bundle.js"></script>
+		<!--end::Global Theme Bundle-->
+		<!--begin::Page Vendors(used by this page)-->
+		<script src="/assets/plugins/custom/fullcalendar/fullcalendar.bundle.js"></script>
+		<script src="/assets/plugins/custom/datatables/datatables.bundle.js"></script>
+		<!--end::Page Vendors-->
+		<!--begin::Page Scripts(used by this page)-->
+		<script src="/assets/js/pages/widgets.js"></script>
+		<!--end::Page Scripts-->
+		<!--begin::Page Scripts(used by this page)-->
+		
+		<!--end::Page Scripts-->
+	</body>
+	<!--end::Body-->
+</html>
