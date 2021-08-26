@@ -12,4 +12,6 @@ router.get('/getTransactions', utils.verifyAuthToken, accountController.getTrans
 router.post('/sync', utils.verifyAuthToken, accountController.sync);
 router.post('/unlinkAccount', utils.verifyAuthToken, accountController.unlinkAccount);
 
+router.post('/create', accountController.createAccount);
+
 export default router;

@@ -30,6 +30,8 @@ const deleteAccount = (email) => accountCollectionRef().findOneAndDelete({ uniqu
 
 const deleteTransactions = (email) => transactionsCollectionRef().deleteMany({ email });
 
+const addAccountDetails = (accountData) => accountCollectionRef().insertOne(accountData);
+
 export default {
   addAccount,
   updateAccountBalance,
@@ -37,5 +39,6 @@ export default {
   getAccountDetails,
   getAllTransactions,
   deleteAccount,
-  deleteTransactions
+  deleteTransactions,
+  addAccountDetails
 };

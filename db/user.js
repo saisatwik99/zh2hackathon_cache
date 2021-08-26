@@ -1,6 +1,5 @@
 import { ObjectId } from 'mongodb';
 import db from './db.js';
-import ConflictError from '../utils/errors/conflictError.js';
 
 const usersCollectionRef = () => db.get().collection('users');
 

@@ -1,14 +1,13 @@
 import moment from 'moment';
 import responder from '../utils/responseHandler.js';
-import userService from '../services/user.js';
+import accountService from '../services/accounts.js';
 import ValidationError from '../utils/errors/validationError.js';
-import httpErrors from '../utils/errors/constants.js';
 
 import accountsUtil from '../utils/account.js';
-import userDb from '../db/user.js';
 import accountDb from '../db/account.js';
 
 const bankLogos = {
+  // eslint-disable-next-line max-len
   'State Bank of India': 'https://res.cloudinary.com/dpyeb9ref/image/upload/c_scale,h_512,w_512/v1628488080/Bank%20Logos/sbi_ipkoqe.png',
   'HDFC Bank': 'https://res.cloudinary.com/dpyeb9ref/image/upload/v1628488080/Bank%20Logos/hdfc_o83sph.png',
   'Kotak Mahindra': 'https://res.cloudinary.com/dpyeb9ref/image/upload/v1628488081/Bank%20Logos/209_s7kpfu.png',
@@ -36,13 +35,12 @@ const linkAccount = async (req, res, next) => {
       toDate: '6/1/2021'
     });
 
-    await accountDb.addAccount(accountDetails),
-    await accountDb.updateAccountBalance({ email: accountDetails.email, balance: transactions.closeBalance }),
+    await accountDb.addAccount(accountDetails);
+    await accountDb.updateAccountBalance({ email: accountDetails.email, balance: transactions.closeBalance });
     await accountDb.addTransactions(transactions);
 
     const updatedAccountDetails = await accountDb.getAccountDetails({ email: user.email });
     res.redirect('/api/account/home');
-    // return responder(res)(null, {accountDetails: updatedAccountDetails, transactions: transactions.transactions, numOfTransactions: transactions.transactions.length});
   } catch (ex) {
     return next(ex);
   }
@@ -51,7 +49,7 @@ const linkAccount = async (req, res, next) => {
 const getLinkAccount = async (req, res, next) => {
   try {
     const { user } = req;
-    res.render('linkAccount', { user });
+    return res.render('linkAccount', { user });
   } catch (ex) {
     return next(ex);
   }
@@ -118,7 +116,7 @@ const sync = async (req, res, next) => {
       toDate: '8/2/2021'
     });
 
-    await accountDb.updateAccountBalance({ email: accountDetails.email, balance: transactions.closeBalance }),
+    await accountDb.updateAccountBalance({ email: accountDetails.email, balance: transactions.closeBalance });
     await accountDb.addTransactions(transactions);
 
     const updatedTransactions = await accountDb.getAllTransactions({ email: user.email });
@@ -133,7 +131,58 @@ const unlinkAccount = async (req, res, next) => {
   await accountDb.deleteAccount(user.email);
   await accountDb.deleteTransactions(user.email);
   res.redirect('/api/account/home');
-}
+};
+
+const createAccount = async (req, res, next) => {
+  try {
+    const {
+      body: {
+        salutation,
+        firstName,
+        lastName,
+        middleName,
+        profilePicUrl,
+        dob,
+        gender,
+        mothersName,
+        panNumber,
+        mobileNumber
+      }
+    } = req;
+
+    if (
+      !salutation
+      || !firstName
+      || !lastName
+      || !middleName
+      || !dob
+      || !gender
+      || !mothersName
+      || !panNumber
+      || !mobileNumber) {
+      return next(new ValidationError('Missing Parameters'));
+    }
+    // if (!user) {
+    //   return next(new ValidationError('User Not Found'));
+    // }
+    const data = await accountService.createAccount({
+      firstName,
+      middleName,
+      lastName,
+      salutation,
+      profilePicUrl,
+      dob,
+      gender,
+      mothersName,
+      panNumber,
+      mobileNumber
+    });
+
+    return responder(res)(null, data);
+  } catch (err) {
+    return next(err);
+  }
+};
 
 export default {
   linkAccount,
@@ -141,5 +190,6 @@ export default {
   getTransactions,
   sync,
   getLinkAccount,
-  unlinkAccount
+  unlinkAccount,
+  createAccount
 };
