@@ -1,4 +1,7 @@
+/* eslint-disable max-len */
 import moment from 'moment';
+import fetch from 'node-fetch';
+import { v4 as uuidv4 } from 'uuid';
 import { ObjectId } from 'mongodb';
 import responder from '../utils/responseHandler.js';
 import goalService from '../services/goal.js';
@@ -130,6 +133,11 @@ const getAllGoals = async (req, res) => {
 
 const getDetails = async (req, res) => {
   const { goalId } = req.params;
+  const { accountError } = req.query;
+  let modifiedAE = false;
+  if (accountError) {
+    modifiedAE = true;
+  }
   const goalDetails = await goalDb.findGoal(goalId);
   const investedAmount = await goalUtils.getTotalNavValue(goalDetails.totalNav);
   const progressBar = Math.floor((investedAmount * 100) / goalDetails.targetAmount).toString();
@@ -148,17 +156,58 @@ const getDetails = async (req, res) => {
     progress: Math.floor((investedAmount * 100) / goalDetails.targetAmount),
     goalImage: goalDetails.goalImage
   };
-  res.render('goalDetails', { goal });
+  res.render('goalDetails', { goal, error: modifiedAE });
 };
 
 const payGoal = (req, res) => {
   const { goalId } = req.params;
-  res.render('paymentGoal', { goalId });
+  const { accountId } = req.user;
+  const { error } = req.query;
+  let modifiedAE = false;
+  if (error) {
+    modifiedAE = true;
+  }
+  if (accountId === undefined) {
+    res.redirect(`/api/goals/details/${ObjectId(goalId).toString()}?accountError=true`);
+    return;
+  }
+  res.render('paymentGoal', { goalId, error: modifiedAE });
 };
 
 const payGoalPost = async (req, res) => {
   const { goalId } = req.params;
-  const { amount, paymentDetails } = req.body;
+  const { amount } = req.body;
+  const { accountId } = req.user;
+
+  const data = {
+    requestID: uuidv4(),
+    amount: {
+      currency: 'INR',
+      amount
+    },
+    transferCode: 'ATLAS_P2M_AUTH',
+    debitAccountID: accountId,
+    creditAccountID: 'b480564d-45ad-49de-bf0d-6bc752808924',
+    transferTime: 1574741608000,
+    remarks: 'From Fund Account',
+    attributes: {}
+  };
+  const url = 'https://fusion.preprod.zeta.in/api/v1/ifi/140793/transfers';
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'x-Zeta-AuthToken': 'eyJlbmMiOiJBMTI4Q0JDLUhTMjU2IiwidGFnIjoiejhPVXlDZjNVNGZMVm4ybl9CaGJPZyIsImFsZyI6IkExMjhHQ01LVyIsIml2IjoicTNNTWFXOExQbVM5UDlMRyJ9.5mypFwHlMnsBAnWrsK9ZZN9EMpbF3T4B6ovRwDzdNzA.3zT3LxLoMDw6GcgtLMhK9Q.DQ7JpV-iGOzkmWT2mKcfu-K8lgu2j-TUckJ3SDA70s4VuRkSptUrR4VQIM7IDQSNMr3l1w_NyBvvAIVjDs_73zV377xF4dlPsLURJMhPp67VvyxRdZAdi98GtlbbsqFxEYxRxA0bdOjLNE3OaJ2SPBIfMKFQ4Fko2kus_Z4N_PXPhwROPR5WXv64FHdkwdJGXB6m1VkB0YoX00zlwEHCRn6wqoIdKk65SfJcJ8xkfKGTtdzGVoayOzyJwX5xBAm66I6XFmX734ynaXBGMPJ9RRcnkzkUn8z0aFEVLvnqjtFXZPld-oVaj7LkO5hdEfAXD2-APZTqV5qgf6EyYxry_z6CECNVQUx8Jhz6RbV7siVgW0x0knz0E-XuSVzp06SV.ylXkDfUP4RmWbHQ0urZMOw'
+    },
+    body: JSON.stringify(data)
+  };
+
+  const response = await fetch(url, options);
+  const json = await response.json();
+  if (json.message === 'Insufficient balance in Account') {
+    res.redirect(`/api/goals/payGoal/${ObjectId(goalId).toString()}?error=true`);
+    return;
+  }
   const goalDetails = await goalDb.findGoal(goalId);
   const navValue = await goalUtils.getNavValue();
   const navAlloted = amount / navValue;
@@ -166,7 +215,7 @@ const payGoalPost = async (req, res) => {
     paymentDate: moment(new Date()).format('D MMM, YYYY'),
     paymentAmount: amount,
     status: 'Credit',
-    paymentDetails: `Paid from ${paymentDetails}`,
+    paymentDetails: `Payment towards Goal ${goalDetails.name}`,
     paymentId: Math.floor(Math.random() * 10000000000000),
     mfDetails: {
       navAlloted,
@@ -181,18 +230,50 @@ const payGoalPost = async (req, res) => {
 
 const withdrawGoal = (req, res) => {
   const { goalId } = req.params;
-  res.render('withdrawGoal', { goalId });
+  const { error } = req.query;
+  let modifiedAE = false;
+  if (error) {
+    modifiedAE = true;
+  }
+  res.render('withdrawGoal', { goalId, error: modifiedAE });
 };
 
 const withdrawGoalPost = async (req, res) => {
   const { goalId } = req.params;
   const { amount, paymentDetails } = req.body;
+  const { accountId } = req.user;
   const goalDetails = await goalDb.findGoal(goalId);
+  const data = {
+    requestID: uuidv4(),
+    amount: {
+      currency: 'INR',
+      amount
+    },
+    transferCode: 'ATLAS_P2M_AUTH',
+    debitAccountID: 'b480564d-45ad-49de-bf0d-6bc752808924',
+    creditAccountID: accountId,
+    transferTime: 1574741608000,
+    remarks: `Withdrawn amount from ${goalDetails.name}`,
+    attributes: {}
+  };
+  const url = 'https://fusion.preprod.zeta.in/api/v1/ifi/140793/transfers';
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'x-Zeta-AuthToken': 'eyJlbmMiOiJBMTI4Q0JDLUhTMjU2IiwidGFnIjoiejhPVXlDZjNVNGZMVm4ybl9CaGJPZyIsImFsZyI6IkExMjhHQ01LVyIsIml2IjoicTNNTWFXOExQbVM5UDlMRyJ9.5mypFwHlMnsBAnWrsK9ZZN9EMpbF3T4B6ovRwDzdNzA.3zT3LxLoMDw6GcgtLMhK9Q.DQ7JpV-iGOzkmWT2mKcfu-K8lgu2j-TUckJ3SDA70s4VuRkSptUrR4VQIM7IDQSNMr3l1w_NyBvvAIVjDs_73zV377xF4dlPsLURJMhPp67VvyxRdZAdi98GtlbbsqFxEYxRxA0bdOjLNE3OaJ2SPBIfMKFQ4Fko2kus_Z4N_PXPhwROPR5WXv64FHdkwdJGXB6m1VkB0YoX00zlwEHCRn6wqoIdKk65SfJcJ8xkfKGTtdzGVoayOzyJwX5xBAm66I6XFmX734ynaXBGMPJ9RRcnkzkUn8z0aFEVLvnqjtFXZPld-oVaj7LkO5hdEfAXD2-APZTqV5qgf6EyYxry_z6CECNVQUx8Jhz6RbV7siVgW0x0knz0E-XuSVzp06SV.ylXkDfUP4RmWbHQ0urZMOw'
+    },
+    body: JSON.stringify(data)
+  };
+
+  const response = await fetch(url, options);
+  const json = await response.json();
+  
   const navValue = await goalUtils.getNavValue();
   const navSold = amount / navValue;
 
   if (goalDetails.totalNav * navValue - amount < 0) {
-    res.redirect(`/api/goals/withdrawGoal/${ObjectId(goalId).toString()}`);
+    res.redirect(`/api/goals/withdrawGoal/${ObjectId(goalId).toString()}?error=true`);
     return;
   }
 
@@ -200,7 +281,7 @@ const withdrawGoalPost = async (req, res) => {
     paymentDate: moment(new Date()).format('D MMM, YYYY'),
     paymentAmount: amount,
     status: 'Debit',
-    paymentDetails: `Paid to ${paymentDetails}`,
+    paymentDetails: 'Transfered to Bank Account',
     paymentId: Math.floor(Math.random() * 10000000000000),
     mfDetails: {
       navSold,
@@ -217,18 +298,34 @@ const deleteGoal = async (req, res) => {
   const { goalId } = req.params;
   const goalDetails = await goalDb.findGoal(goalId);
   const navValue = await goalUtils.getNavValue();
-  if (goalDetails.totalNav === 0) {
-    await goalDb.deleteGoal(goalId);
-    return res.redirect('/api/goals/getAllGoals');
-  }
-  res.render('deleteGoal', { goalId, totalAmount: (navValue * goalDetails.totalNav) });
-};
+  const { accountId } = req.user;
 
-const deleteGoalPost = async (req, res) => {
-  const { goalId } = req.params;
-  const { paymentDetails } = req.body;
+  const data = {
+    requestID: uuidv4(),
+    amount: {
+      currency: 'INR',
+      amount: navValue * goalDetails.totalNav
+    },
+    transferCode: 'ATLAS_P2M_AUTH',
+    debitAccountID: 'b480564d-45ad-49de-bf0d-6bc752808924',
+    creditAccountID: accountId,
+    transferTime: 1574741608000,
+    remarks: `Withdrawn amount from Goal ${goalDetails.name}`,
+    attributes: {}
+  };
+  const url = 'https://fusion.preprod.zeta.in/api/v1/ifi/140793/transfers';
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'x-Zeta-AuthToken': 'eyJlbmMiOiJBMTI4Q0JDLUhTMjU2IiwidGFnIjoiejhPVXlDZjNVNGZMVm4ybl9CaGJPZyIsImFsZyI6IkExMjhHQ01LVyIsIml2IjoicTNNTWFXOExQbVM5UDlMRyJ9.5mypFwHlMnsBAnWrsK9ZZN9EMpbF3T4B6ovRwDzdNzA.3zT3LxLoMDw6GcgtLMhK9Q.DQ7JpV-iGOzkmWT2mKcfu-K8lgu2j-TUckJ3SDA70s4VuRkSptUrR4VQIM7IDQSNMr3l1w_NyBvvAIVjDs_73zV377xF4dlPsLURJMhPp67VvyxRdZAdi98GtlbbsqFxEYxRxA0bdOjLNE3OaJ2SPBIfMKFQ4Fko2kus_Z4N_PXPhwROPR5WXv64FHdkwdJGXB6m1VkB0YoX00zlwEHCRn6wqoIdKk65SfJcJ8xkfKGTtdzGVoayOzyJwX5xBAm66I6XFmX734ynaXBGMPJ9RRcnkzkUn8z0aFEVLvnqjtFXZPld-oVaj7LkO5hdEfAXD2-APZTqV5qgf6EyYxry_z6CECNVQUx8Jhz6RbV7siVgW0x0knz0E-XuSVzp06SV.ylXkDfUP4RmWbHQ0urZMOw'
+    },
+    body: JSON.stringify(data)
+  };
+
+  const response = await fetch(url, options);
+  const json = await response.json();
   await goalDb.deleteGoal(goalId);
-
   res.redirect('/api/goals/getAllGoals');
 };
 
@@ -243,6 +340,5 @@ export default {
   payGoalPost,
   withdrawGoal,
   withdrawGoalPost,
-  deleteGoal,
-  deleteGoalPost
+  deleteGoal
 };
