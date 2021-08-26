@@ -217,23 +217,22 @@
 												<h3 class="card-title">Payment towards Goal </h3>
 												
 											</div>
+											<% if(error === true) { %>
+												<div class="alert alert-custom alert-light-danger fade show" role="alert">
+													<div class="alert-icon"><i class="flaticon-warning"></i></div>
+													<div class="alert-text">Insuffient Balance in your account</div>
+													<div class="alert-close">
+														<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+															<span aria-hidden="true"><i class="ki ki-close"></i></span>
+														</button>
+													</div>
+												</div>
+											<% } %>
 											<!--begin::Form-->
 											<form action="/api/goals/payGoal/<%= goalId %>" method="POST"  class="form" id="kt_form_5">
 												<div class="card-body">
 													
-													<div class="alert alert-custom alert-light-danger d-none" role="alert" id="kt_form_5_msg">
-														<div class="alert-icon">
-															<i class="flaticon2-information"></i>
-														</div>
-														<div class="alert-text font-weight-bold">Oh snap! Change a few things up and try submitting again.</div>
-														<div class="alert-close">
-															<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-																<span>
-																	<i class="ki ki-close"></i>
-																</span>
-															</button>
-														</div>
-													</div>
+													
 													<div class="form-group row">
 														<label class="col-form-label text-right col-lg-3 col-sm-12">Amount *</label>
 														<div class="col-lg-9 col-md-9 col-sm-12">
@@ -246,13 +245,6 @@
 																<input type="text" class="form-control" name="amount" placeholder="Enter Amount" required/>
 															</div>
 															<span class="form-text text-muted">Please enter Amount</span>
-														</div>
-													</div>
-													<div class="form-group row">
-														<label class="col-form-label text-right col-lg-3 col-sm-12">UPI ID *</label>
-														<div class="col-lg-9 col-md-9 col-sm-12">
-															<input type="text" class="form-control" name="paymentDetails" placeholder="Enter UPI ID" required/>
-															<span class="form-text text-muted">Please enter UPI ID.</span>
 														</div>
 													</div>
 												</div>
