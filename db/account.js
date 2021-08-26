@@ -12,7 +12,7 @@ const addAccount = async (account) => {
   return accountCollectionRef().insertOne(account);
 };
 
-const getAccountDetails = ({ email }) => accountCollectionRef().findOne({ uniqueUserId: email });
+const getAccountDetails = ({ email }) => accountCollectionRef().findOne({ email });
 
 const updateAccountBalance = async (account) => {
   const isAccountPresent = await accountCollectionRef().findOne({ email: account.email });
@@ -30,6 +30,8 @@ const deleteAccount = (email) => accountCollectionRef().findOneAndDelete({ uniqu
 
 const deleteTransactions = (email) => transactionsCollectionRef().deleteMany({ email });
 
+const addAccountDetails = (accountData) => accountCollectionRef().insertOne(accountData);
+
 export default {
   addAccount,
   updateAccountBalance,
@@ -37,5 +39,6 @@ export default {
   getAccountDetails,
   getAllTransactions,
   deleteAccount,
-  deleteTransactions
+  deleteTransactions,
+  addAccountDetails
 };
