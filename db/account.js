@@ -12,7 +12,7 @@ const addAccount = async (account) => {
   return accountCollectionRef().insertOne(account);
 };
 
-const getAccountDetails = ({ email }) => accountCollectionRef().findOne({ uniqueUserId: email });
+const getAccountDetails = ({ email }) => accountCollectionRef().findOne({ email });
 
 const updateAccountBalance = async (account) => {
   const isAccountPresent = await accountCollectionRef().findOne({ email: account.email });

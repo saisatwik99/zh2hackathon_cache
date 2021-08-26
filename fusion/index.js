@@ -84,7 +84,23 @@ const issueBundle = async ({ individualID, userDetails }) => {
   return json;
 };
 
+const getAccountBalance = async (accountId) => {
+  const url = `${BASE_URL()}/ifi/${IFI_CODE()}/accounts/${accountId}/balance`;
+  const options = {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'x-Zeta-AuthToken': FUSION_AUTH()
+    }
+  };
+  const response = await fetch(url, options);
+  const json = await response.json();
+
+  return json && json?.balance;
+};
+
 export default {
   createAccount,
-  issueBundle
+  issueBundle,
+  getAccountBalance
 };

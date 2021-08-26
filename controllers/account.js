@@ -146,7 +146,8 @@ const createAccount = async (req, res, next) => {
         gender,
         mothersName,
         panNumber,
-        mobileNumber
+        mobileNumber,
+        email
       }
     } = req;
 
@@ -159,12 +160,11 @@ const createAccount = async (req, res, next) => {
       || !gender
       || !mothersName
       || !panNumber
-      || !mobileNumber) {
+      || !mobileNumber
+      || !email) {
       return next(new ValidationError('Missing Parameters'));
     }
-    // if (!user) {
-    //   return next(new ValidationError('User Not Found'));
-    // }
+
     const data = await accountService.createAccount({
       firstName,
       middleName,
@@ -175,10 +175,23 @@ const createAccount = async (req, res, next) => {
       gender,
       mothersName,
       panNumber,
-      mobileNumber
+      mobileNumber,
+      email
     });
 
     return responder(res)(null, data);
+  } catch (err) {
+    return next(err);
+  }
+};
+
+const getAccountBalance = async (req, res, next) => {
+  try {
+    const { body: { email } } = req;
+
+    const balance = await accountService.getAccountBalance(email);
+
+    return responder(res)(null, { balance });
   } catch (err) {
     return next(err);
   }
@@ -191,5 +204,6 @@ export default {
   sync,
   getLinkAccount,
   unlinkAccount,
-  createAccount
+  createAccount,
+  getAccountBalance
 };
