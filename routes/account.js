@@ -8,7 +8,6 @@ const router = Router();
 router.post('/linkAccount', utils.verifyAuthToken, accountController.linkAccount);
 router.get('/createAccount', utils.verifyAuthToken, accountController.getCreateAccount);
 router.get('/home', utils.verifyAuthToken, accountController.getAccountDetails);
-router.post('/sync', utils.verifyAuthToken, accountController.sync);
 router.post('/unlinkAccount', utils.verifyAuthToken, accountController.unlinkAccount);
 
 router.post('/create', accountController.createAccount);

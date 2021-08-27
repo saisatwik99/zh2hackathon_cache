@@ -59,24 +59,38 @@ const getAccountDetails = async (req, res, next) => {
   try {
     const { user } = req;
     const accountDetails = await accountDb.getAccountDetails({ email: user.email });
-    const transactions = await accountDb.getAllTransactions({ email: user.email });
-
     let exist = false;
     if (accountDetails !== undefined) {
       exist = true;
     }
-    const modifiedTransactions = transactions;
-    modifiedTransactions.forEach((ele) => {
-      ele.date = moment(ele.date).format('D MMM, YY');
-      if (ele.amount < 0) {
-        ele.status = 'Debit';
-        ele.amount *= (-1);
-      } else {
-        ele.status = 'Credit';
-      }
+    if (!exist) {
+      return res.render('accounts', {
+        exist
+      });
+    }
+    const transactions = await accountService.getAccountTransactions({ email: user.email, pgSize: 50, pgNumber: 1 });
+    const balance = await accountService.getAccountBalance(user.email);
+
+    const modifiedTransactions = [];
+    console.log(transactions.totalRecord);
+
+    transactions.accountTransactionList.forEach((ele) => {
+      modifiedTransactions.push({
+        date: moment(ele.timestamp).format('D MMM, YY'),
+        details: ele.remarks,
+        amount: ele.amount,
+        status: ele.recordType
+      });
     });
+
     res.render('accounts', {
-      account: accountDetails, transDetails: modifiedTransactions, user, exist
+      account: {
+        id: accountDetails.account.accountID,
+        balance
+      },
+      transDetails: modifiedTransactions,
+      user,
+      exist
     });
   } catch (ex) {
     return next(ex);
@@ -89,29 +103,6 @@ const getAccountTransactions = async (req, res, next) => {
     const transactions = await accountService.getAccountTransactions({ email, pgSize, pgNumber });
 
     return responder(res)(null, transactions);
-  } catch (ex) {
-    return next(ex);
-  }
-};
-
-const sync = async (req, res, next) => {
-  try {
-    const { user } = req;
-    const accountDetails = await accountDb.getAccountDetails({ email: user.email });
-    const transactions = accountsUtil.generateTransactions({
-      email: accountDetails.uniqueUserId,
-      accountId: accountDetails.id,
-      no: 4,
-      balance: accountDetails.balance,
-      fromDate: '6/2/2021',
-      toDate: '8/2/2021'
-    });
-
-    await accountDb.updateAccountBalance({ email: accountDetails.email, balance: transactions.closeBalance });
-    await accountDb.addTransactions(transactions);
-
-    const updatedTransactions = await accountDb.getAllTransactions({ email: user.email });
-    return responder(res)(null, { transactions: updatedTransactions, numOfTransactions: updatedTransactions.length });
   } catch (ex) {
     return next(ex);
   }
@@ -170,7 +161,7 @@ const createAccount = async (req, res, next) => {
       email
     });
 
-    return responder(res)(null, data);
+    res.redirect('/api/account/home');
   } catch (err) {
     return next(err);
   }
@@ -192,7 +183,6 @@ export default {
   linkAccount,
   getAccountDetails,
   getAccountTransactions,
-  sync,
   getCreateAccount,
   unlinkAccount,
   createAccount,

@@ -226,7 +226,7 @@
 													<span class="card-label font-weight-bolder text-dark">Account Details</span>
 												</h3>
 												<div class="d-flex align-items-center">
-													<a onclick="document.getElementById('unlinkaccount').submit();" class="btn btn-light-primary font-weight-bold ml-2">Unlink Account</a>
+													<a href="/api/account/transfer" class="btn btn-light-primary font-weight-bold ml-2">Transfer Money</a>
 												</div>
 												
 											</div>
@@ -276,10 +276,10 @@
 																		</td>
 																		<td class="pl-0">
 																			<a href="#" class="text-dark font-weight-bolder text-hover-primary mb-1 font-size-lg"><%=user.firstName%></a>
-																			<span class="text-muted font-weight-bold d-block"><%=account.name%></span>
+																			<span class="text-muted font-weight-bold d-block">CACHE</span>
 																		</td>
 																		<td class="text-right">
-																			<span class="text-muted font-weight-500"><%=account._id%></span>
+																			<span class="text-muted font-weight-500"><%=account.id%></span>
 																		</td>
 																		<td class="text-right">
 																			<span class="label label-lg label-light-primary label-inline"><%=account.balance%></span>
@@ -356,7 +356,7 @@
 																		<td class="text-right">
 																			<span class="text-dark-75 font-weight-500"><%=element.amount%></span>
 																		</td>
-																		<% if(element.status === "Credit"){ %> 
+																		<% if(element.status === "CREDIT"){ %> 
 																			<td class="text-right">
 																				<span class="label label-lg label-light-success label-inline">Credit</span>
 																			</td>

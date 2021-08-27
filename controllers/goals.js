@@ -7,6 +7,7 @@ import responder from '../utils/responseHandler.js';
 import goalService from '../services/goal.js';
 import goalUtils from '../utils/goal.js';
 import goalDb from '../db/goals.js';
+import accountDb from '../db/account.js';
 
 const goalImages = [
   'https://res.cloudinary.com/dpyeb9ref/image/upload/v1628600107/Goals/img-16_j7qqww.jpg',
@@ -159,9 +160,11 @@ const getDetails = async (req, res) => {
   res.render('goalDetails', { goal, error: modifiedAE });
 };
 
-const payGoal = (req, res) => {
+const payGoal = async (req, res) => {
   const { goalId } = req.params;
-  const { accountId } = req.user;
+  const { email } = req.user;
+  const { account } = await accountDb.getAccountDetails({ email });
+  const accountId = account.accountID;
   const { error } = req.query;
   let modifiedAE = false;
   if (error) {
@@ -177,7 +180,9 @@ const payGoal = (req, res) => {
 const payGoalPost = async (req, res) => {
   const { goalId } = req.params;
   const { amount } = req.body;
-  const { accountId } = req.user;
+  const { email } = req.user;
+  const { account } = await accountDb.getAccountDetails({ email });
+  const accountId = account.accountID;
 
   const data = {
     requestID: uuidv4(),
@@ -241,7 +246,9 @@ const withdrawGoal = (req, res) => {
 const withdrawGoalPost = async (req, res) => {
   const { goalId } = req.params;
   const { amount, paymentDetails } = req.body;
-  const { accountId } = req.user;
+  const { email } = req.user;
+  const { account } = await accountDb.getAccountDetails({ email });
+  const accountId = account.accountID;
   const goalDetails = await goalDb.findGoal(goalId);
   const data = {
     requestID: uuidv4(),
@@ -298,7 +305,9 @@ const deleteGoal = async (req, res) => {
   const { goalId } = req.params;
   const goalDetails = await goalDb.findGoal(goalId);
   const navValue = await goalUtils.getNavValue();
-  const { accountId } = req.user;
+  const { email } = req.user;
+  const { account } = await accountDb.getAccountDetails({ email });
+  const accountId = account.accountID;
 
   const data = {
     requestID: uuidv4(),
