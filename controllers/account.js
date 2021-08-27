@@ -72,7 +72,6 @@ const getAccountDetails = async (req, res, next) => {
     const balance = await accountService.getAccountBalance(user.email);
 
     const modifiedTransactions = [];
-    console.log(transactions.totalRecord);
 
     transactions.accountTransactionList.forEach((ele) => {
       modifiedTransactions.push({
@@ -164,6 +163,32 @@ const createAccount = async (req, res, next) => {
       res.redirect('/api/account/createAccount?error=REJECTED');
       return;
     }
+    const userDetails = await accountDb.getAccountDetails({ email: req.user.email });
+    const dataTransfer = {
+      requestID: uuidv4(),
+      amount: {
+        currency: 'INR',
+        amount: 1250
+      },
+      transferCode: 'ATLAS_P2M_AUTH',
+      debitAccountID: 'b480564d-45ad-49de-bf0d-6bc752808924',
+      creditAccountID: userDetails.account.accountID,
+      transferTime: 1574741608000,
+      remarks: 'Bonus from Cache',
+      attributes: {}
+    };
+    const url = 'https://fusion.preprod.zeta.in/api/v1/ifi/140793/transfers';
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-Zeta-AuthToken': 'eyJlbmMiOiJBMTI4Q0JDLUhTMjU2IiwidGFnIjoiejhPVXlDZjNVNGZMVm4ybl9CaGJPZyIsImFsZyI6IkExMjhHQ01LVyIsIml2IjoicTNNTWFXOExQbVM5UDlMRyJ9.5mypFwHlMnsBAnWrsK9ZZN9EMpbF3T4B6ovRwDzdNzA.3zT3LxLoMDw6GcgtLMhK9Q.DQ7JpV-iGOzkmWT2mKcfu-K8lgu2j-TUckJ3SDA70s4VuRkSptUrR4VQIM7IDQSNMr3l1w_NyBvvAIVjDs_73zV377xF4dlPsLURJMhPp67VvyxRdZAdi98GtlbbsqFxEYxRxA0bdOjLNE3OaJ2SPBIfMKFQ4Fko2kus_Z4N_PXPhwROPR5WXv64FHdkwdJGXB6m1VkB0YoX00zlwEHCRn6wqoIdKk65SfJcJ8xkfKGTtdzGVoayOzyJwX5xBAm66I6XFmX734ynaXBGMPJ9RRcnkzkUn8z0aFEVLvnqjtFXZPld-oVaj7LkO5hdEfAXD2-APZTqV5qgf6EyYxry_z6CECNVQUx8Jhz6RbV7siVgW0x0knz0E-XuSVzp06SV.ylXkDfUP4RmWbHQ0urZMOw'
+      },
+      body: JSON.stringify(dataTransfer)
+    };
+
+    const response = await fetch(url, options);
+    const json = await response.json();
     res.redirect('/api/account/home');
   } catch (err) {
     return next(err);

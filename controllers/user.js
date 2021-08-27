@@ -1,8 +1,10 @@
 import moment from 'moment';
+import { ConnectionClosedEvent } from 'mongodb';
 import responder from '../utils/responseHandler.js';
 import userService from '../services/user.js';
 import ValidationError from '../utils/errors/validationError.js';
 import httpErrors from '../utils/errors/constants.js';
+import accountService from '../services/accounts.js';
 import utils from '../utils/utils.js';
 import InvalidJwtError from '../utils/errors/invalidToken.js';
 import userDB from '../db/user.js';
@@ -60,22 +62,26 @@ const userLogin = async (req, res, next) => {
 const dashboard = async (req, res) => {
   const { user } = req;
   const userDetails = await userDB.getUserDetails({ email: user.email });
-  const transactions = await accountDb.getAllTransactions({ email: user.email });
-  let modifiedTransactions = transactions;
-  if (transactions.length > 0) {
-    modifiedTransactions.forEach((ele) => {
-      ele.date = moment(ele.date).format('D MMM, YY');
-      if (ele.amount < 0) {
-        ele.status = 'Debit';
-        ele.amount *= (-1);
-      } else {
-        ele.status = 'Credit';
-      }
+  const accountData = await accountDb.getAccountDetails({ email: user.email });
+  const isThere = !!accountData;
+  if (isThere === false) {
+    res.render('dashboard', { user: userDetails, isThere });
+  }
+  const transactions = await accountService.getAccountTransactions({ email: user.email, pgSize: 50, pgNumber: 1 });
+
+  let modifiedTransactions = [];
+  if (transactions.accountTransactionList.length > 0) {
+    transactions.accountTransactionList.forEach((ele) => {
+      modifiedTransactions.push({
+        date: moment(ele.timestamp).format('D MMM, YY'),
+        details: ele.remarks,
+        amount: ele.amount,
+        status: ele.recordType
+      });
     });
     modifiedTransactions = modifiedTransactions.slice(0, 5);
   }
 
-  const isThere = transactions.length > 0;
   res.render('dashboard', { user: userDetails, transactions: modifiedTransactions, isThere });
 };
 

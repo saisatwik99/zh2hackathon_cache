@@ -311,6 +311,7 @@
 												<!--begin::Table-->
 												<% if(isThere > 0){ %>
 												<div class="table-responsive">
+													<% if(transactions.length > 0) { %>
 													<table class="table table-borderless mb-0">
 														<tbody>
 															<!--begin::Item-->
@@ -320,7 +321,7 @@
 																<td class="font-size-lg font-weight-bolder text-dark-75 align-middle w-150px pb-6"><%= ele.details %></td>
 																<td class="font-weight-bold text-muted text-right align-middle pb-6"><%= ele.amount %></td>
 																<!-- <td class="font-weight-bolder font-size-lg text-dark-75 text-right align-middle pb-6"><%= ele.status %></td> -->
-																<% if(ele.status === "Credit"){ %> 
+																<% if(ele.status === "CREDIT"){ %> 
 																	<td class="text-dark-75 text-right align-middle pb-6">
 																		<span class="label label-lg label-light-success label-inline">Credit</span>
 																	</td>
@@ -334,12 +335,20 @@
 															<% }) %>
 														</tbody>
 													</table>
+													<% }else{ %>
+														<div class="flex-grow-1 bg-danger p-8 rounded-xl flex-grow-1 bgi-no-repeat" style="background-position: calc(100% + 0.5rem) bottom; background-size: auto 70%; background-image: url(/assets/media/svg/humans/custom-3.svg)">
+															<h4 class="text-inverse-danger mt-2 font-weight-bolder">No Transactions to show</h4>
+															
+															</p>
+															<a href="/api/account/home" class="btn btn-warning font-weight-bold py-2 px-6">Link Account</a>
+														</div>
+													<% } %>
 												</div>
 												<% } else { %>
 													<div class="flex-grow-1 bg-danger p-8 rounded-xl flex-grow-1 bgi-no-repeat" style="background-position: calc(100% + 0.5rem) bottom; background-size: auto 70%; background-image: url(/assets/media/svg/humans/custom-3.svg)">
-														<h4 class="text-inverse-danger mt-2 font-weight-bolder">Account Not Linked</h4>
+														<h4 class="text-inverse-danger mt-2 font-weight-bolder">Account Not Created</h4>
 														<p class="text-inverse-danger my-6">No Transactions to show
-														<br />link account to get.</p>
+														</p>
 														<a href="/api/account/home" class="btn btn-warning font-weight-bold py-2 px-6">Link Account</a>
 													</div>
 												<% } %>

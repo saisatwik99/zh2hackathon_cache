@@ -17,7 +17,7 @@ const createAccount = async (userDetails) => {
   if (status === 'REJECTED') {
     return { status: 'REJECTED' };
   }
-  
+
   const accountDetails = await fusionApi.issueBundle({ individualID, userDetails });
   console.log(accountDetails);
   const account = accountDetails?.accounts[0];
