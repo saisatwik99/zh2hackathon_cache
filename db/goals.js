@@ -28,7 +28,12 @@ const updateCompleteGoal = (goal) => goalsCollectionRef().findOneAndUpdate(
         {_id: ObjectId(goal._id)},
         { $set : {totalNav: goal.totalNav, payments: goal.payments}}, 
         {returnNewDocument: true}
-    )
+)
+
+const getListOfGoals = async () => {
+    const  resGoals = await goalsCollectionRef().find().toArray();
+    return resGoals;
+}
 
 
 const getAllGoals = (user) => {
@@ -43,5 +48,6 @@ export default {
     getAllGoals,
     findGoal,
     updateCompleteGoal,
-    deleteGoal
+    deleteGoal,
+    getListOfGoals
 }

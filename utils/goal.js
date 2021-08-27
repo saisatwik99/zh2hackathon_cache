@@ -12,7 +12,12 @@ const getNavValue = async () => {
   return data.data[0].nav;
 };
 
+const getTotalInvestedAmount = (allGoals) => {
+  console.log(allGoals[1])
+}
+
 export default {
   getTotalNavValue,
-  getNavValue
+  getNavValue,
+  getTotalInvestedAmount
 };

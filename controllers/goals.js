@@ -95,9 +95,18 @@ const updateGoal = async (req, res, next) => {
   }
 };
 
+const getNetInvestedAmount = async (req, res, next) => {
+  const goals = await goalDb.getListOfGoals();
+  const data = goalUtils.getTotalInvestedAmount(goals);
+
+  console.log('data from getTotalInvestedAmount', data);
+  return data;
+};
+
 const getAllGoals = async (req, res) => {
   const { user } = req;
-  const goals = await goalService.getAllGoals(user);
+  const goals = await goalServiceP.getAllGoals(user);
+  const allGoals = await goalDb.getListOfGoals();
   const modifiedGoals = await Promise.all(goals.map(async (goal) => {
     const investedAmount = await goalUtils.getTotalNavValue(goal.totalNav);
 
@@ -294,6 +303,8 @@ const withdrawGoalPost = async (req, res) => {
   res.redirect('/api/goals/getAllGoals');
 };
 
+
+
 const deleteGoal = async (req, res) => {
   const { goalId } = req.params;
   const goalDetails = await goalDb.findGoal(goalId);
@@ -340,5 +351,6 @@ export default {
   payGoalPost,
   withdrawGoal,
   withdrawGoalPost,
-  deleteGoal
+  deleteGoal,
+  getNetInvestedAmount
 };
