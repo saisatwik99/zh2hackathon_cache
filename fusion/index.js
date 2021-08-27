@@ -1,3 +1,5 @@
+/* eslint-disable max-len */
+/* eslint-disable operator-linebreak */
 import fetch from 'node-fetch';
 import ValidationError from '../utils/errors/validationError.js';
 
@@ -99,8 +101,24 @@ const getAccountBalance = async (accountId) => {
   return json && json?.balance;
 };
 
+const getAccountTransactions = async ({ accountId, pageSize = 10, pageNumber = 1 }) => {
+  const url = `${BASE_URL()}/ifi/${IFI_CODE()}/accounts/${accountId}/transactions?pageSize=${+pageSize}&pageNumber=${+pageNumber}`;
+  const options = {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'x-Zeta-AuthToken': FUSION_AUTH()
+    }
+  };
+  const response = await fetch(url, options);
+  const json = await response.json();
+
+  return json;
+};
+
 export default {
   createAccount,
   issueBundle,
-  getAccountBalance
+  getAccountBalance,
+  getAccountTransactions
 };
