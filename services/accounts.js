@@ -3,6 +3,8 @@ import userDb from '../db/user.js';
 import accountDb from '../db/account.js';
 import ConflictError from '../utils/errors/conflictError.js';
 import NotFoundError from '../utils/errors/notFoundError.js';
+import goalsDb from '../db/goals.js';
+import goalsUtils from '../utils/goal.js';
 
 const createAccount = async (userDetails) => {
   const isAccountPresent = await accountDb.getAccountDetails({ email: userDetails?.email });
@@ -47,8 +49,34 @@ const getAccountTransactions = async ({ email, pgSize, pgNumber }) => {
   return data;
 };
 
+const getNetWorth = async (user) => {
+  const accountData = await accountDb.getAccountDetails({ email: user?.email });
+  const accountId = accountData?.account?.accountID;
+  if (!accountId) {
+    throw new NotFoundError('Could Not Find Account With This Email');
+  }
+  const accountBalance = await fusionApi.getAccountBalance(accountId);
+  const goals = await goalsDb.getAllGoals(user);
+  const totalGoalsValue = await goals.reduce(async (total, goal) => {
+    const totalNav = goal?.totalNav;
+    if (!totalNav) {
+      return total + 0;
+    }
+    const MfAmount = await goalsUtils.getTotalNavValue(+totalNav);
+
+    const returnValue = await total + MfAmount;
+
+    return returnValue;
+  }, 0);
+
+  const netWorth = (+accountBalance) + (+totalGoalsValue);
+
+  return netWorth;
+};
+
 export default {
   createAccount,
   getAccountBalance,
-  getAccountTransactions
+  getAccountTransactions,
+  getNetWorth
 };

@@ -179,6 +179,18 @@ const getAccountBalance = async (req, res, next) => {
   }
 };
 
+const getNetWorth = async (req, res, next) => {
+  try {
+    const { user } = req;
+
+    const data = await accountService.getNetWorth(user);
+
+    return responder(res)(null, { networth: data });
+  } catch (err) {
+    return next(err);
+  }
+};
+
 export default {
   linkAccount,
   getAccountDetails,
@@ -186,5 +198,6 @@ export default {
   getCreateAccount,
   unlinkAccount,
   createAccount,
-  getAccountBalance
+  getAccountBalance,
+  getNetWorth
 };

@@ -10,7 +10,10 @@ router.get('/createAccount', utils.verifyAuthToken, accountController.getCreateA
 router.get('/home', utils.verifyAuthToken, accountController.getAccountDetails);
 router.post('/unlinkAccount', utils.verifyAuthToken, accountController.unlinkAccount);
 
+router.use(utils.verifyAuthToken);
 router.post('/create', accountController.createAccount);
 router.post('/getTransactions', accountController.getAccountTransactions);
+router.post('/getBalance', accountController.getAccountBalance);
+router.post('/getNetWorth', accountController.getNetWorth);
 
 export default router;
