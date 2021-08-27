@@ -29,3 +29,4 @@ Open the dedicated Terminal of Your OS and Follow the Steps :
 * Run ```npm start```
 * If everything is working fine, You will get a confirmation message that your application is running.
 
+* Note: After the creation of new account, you will be provided with an account id and that account id can be funded using transfers.
