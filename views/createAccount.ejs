@@ -243,7 +243,7 @@
                                                                 <div class="wizard-step" data-wizard-type="step">
                                                                     <div class="wizard-label">
                                                                         <i class="wizard-icon flaticon-list"></i>
-                                                                        <h3 class="wizard-title">Enter Bank Details</h3>
+                                                                        <h3 class="wizard-title">Enter your Details</h3>
                                                                     </div>
                                                                     <span class="svg-icon svg-icon-xl wizard-arrow">
                                                                         <!--begin::Svg Icon | path:assets/media/svg/icons/Navigation/Arrow-right.svg-->
@@ -285,35 +285,75 @@
                                                         <div class="row justify-content-center my-10 px-8 my-lg-15 px-lg-10">
                                                             <div class="col-xl-12 col-xxl-7">
                                                                 <!--begin::Wizard Form-->
-                                                                <form action="/api/account/linkAccount" method="POST" class="form" id="kt_form">
+                                                                <form action="/api/account/create" method="POST" class="form" id="kt_form">
                                                                     
                                                                     <!--begin::Wizard Step 2-->
                                                                     <div class="pb-5" data-wizard-type="step-content">
-                                                                        <h4 class="mb-10 font-weight-bold text-dark">Enter your Bank Details</h4>
+                                                                        <h4 class="mb-10 font-weight-bold text-dark">Enter your Details</h4>
                                                                         <!--begin::Input-->
                                                                         <div class="form-group validation">
-                                                                            <label>Bank Name</label>
-                                                                            <select name="bankName" class="form-control form-control-solid form-control-lg" required>
-                                                                                <option value="State Bank of India">State Bank of India</option>
-                                                                                <option value="HDFC Bank" selected="selected">HDFC Bank</option>
-                                                                                <option value="Kotak Mahindra">Kotak Mahindra</option>
-                                                                                <option value="Axis Bank">Axis Bank</option>
-                                                                                <option value="ICICI Bank">ICICI Bank</option>
+                                                                            <label>Salutation</label>
+                                                                            <select name="salutation" class="form-control form-control-solid form-control-lg" required>
+                                                                                <option value="Mr" selected="selected">Mr</option>
+                                                                                <option value="Ms">Ms</option>
+																				<option value="Mrs">Mrs</option>
                                                                             </select>
-                                                                        </div>
-                                                                        <div class="form-group">
-                                                                            <label>User Name</label>
-                                                                            <input type="text" class="form-control form-control-solid form-control-lg" name="username" placeholder="Username" required/>
-                                                                            <span class="form-text text-muted">Please enter your account username.</span>
                                                                         </div>
                                                                         <!--end::Input-->
                                                                         <!--begin::Input-->
                                                                         <div class="form-group">
-                                                                            <label>Password</label>
-                                                                            <input type="password" class="form-control form-control-solid form-control-lg" name="password" placeholder="Password"  required/>
-                                                                            <span class="form-text text-muted">Please enter your account password</span>
+                                                                            <label>First Name</label>
+                                                                            <input type="text" class="form-control form-control-solid form-control-lg" name="firstName" placeholder="First Name"  required/>
+                                                                            <span class="form-text text-muted">Please enter your First Name</span>
                                                                         </div>
-                                                                        
+																		<div class="form-group">
+                                                                            <label>Last Name</label>
+                                                                            <input type="text" class="form-control form-control-solid form-control-lg" name="lastName" placeholder="Last Name"  required/>
+                                                                            <span class="form-text text-muted">Please enter your Last Name</span>
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label>Middle Name</label>
+                                                                            <input type="text" class="form-control form-control-solid form-control-lg" name="middleName" placeholder="Middle Name"  required/>
+                                                                            <span class="form-text text-muted">Please enter your Middle Name</span>
+                                                                        </div>
+																		<div class="form-group">
+                                                                            <label>Date of Birth</label>
+                                                                            <div class="input-group date">
+																				<input type="text" class="form-control" value="01/01/2000" name="dob" id="kt_datepicker_3" />
+																				<div class="input-group-append">
+																					<span class="input-group-text">
+																						<i class="la la-calendar"></i>
+																					</span>
+																				</div>
+																			</div>
+                                                                        </div>
+																		<div class="form-group validation">
+                                                                            <label>Gender</label>
+                                                                            <select name="gender" class="form-control form-control-solid form-control-lg" required>
+                                                                                <option value="MALE" selected="selected">Male</option>
+                                                                                <option value="FEMALE">Female</option>
+                                                                            </select>
+                                                                        </div>
+																		<div class="form-group">
+                                                                            <label>Mothers Maiden Name</label>
+                                                                            <input type="text" class="form-control form-control-solid form-control-lg" name="mothersName" placeholder="Mothers Maiden Name"  required/>
+                                                                            <span class="form-text text-muted">Please enter your Mothers Maiden Name</span>
+                                                                        </div>
+																		<div class="form-group">
+                                                                            <label>PAN Number</label>
+                                                                            <input type="text" class="form-control form-control-solid form-control-lg" name="panNumber" placeholder="PAN Number"  required/>
+                                                                            <span class="form-text text-muted">Please enter your PAN Number</span>
+                                                                        </div>
+																		<div class="form-group">
+                                                                            <label>Mobile Number</label>
+                                                                            <input type="text" class="form-control form-control-solid form-control-lg" name="mobileNumber" placeholder="Mobile Number"  required/>
+                                                                            <span class="form-text text-muted">Please enter your Mobile Number</span>
+                                                                        </div>
+																		<div class="form-group">
+                                                                            <label>Email</label>
+                                                                            <input type="text" class="form-control form-control-solid form-control-lg" name="email" placeholder="Email"  required/>
+                                                                            <span class="form-text text-muted">Please enter your Email</span>
+                                                                        </div>
                                                                     </div>
                                                                     <!--end::Wizard Step 2-->
                                                                     
@@ -324,7 +364,7 @@
                                                                         <!--begin::Select-->
                                                                         <div class="form-group">
                                                                             <label>One Time Password</label>
-                                                                            <input type="password" class="form-control form-control-solid form-control-lg" name="otp" placeholder="Password"  />
+                                                                            <input type="password" class="form-control form-control-solid form-control-lg" name="otp" placeholder="Password" required/>
                                                                             <span class="form-text text-muted">Please enter your 6 digits otp you received</span>
                                                                         </div>
                                                                     </div>
@@ -401,6 +441,7 @@
 		<!--end::Page Vendors-->
 		<!--begin::Page Scripts(used by this page)-->
 		<script src="/assets/js/pages/widgets.js"></script>
+		<script src="/assets/js/pages/crud/forms/widgets/bootstrap-datepicker.js"></script>
 		<!--end::Page Scripts-->
 		<!--begin::Page Scripts(used by this page)-->
 		

@@ -16,17 +16,77 @@ var KTWizard1 = function () {
 			_formEl,
 			{
 				fields: {
-					username: {
+					salutation: {
 						validators: {
 							notEmpty: {
-								message: 'Username is required'
+								message: 'Salutation is required'
 							}
 						}
 					},
-					password: {
+					firstName: {
 						validators: {
 							notEmpty: {
-								message: 'Password is required'
+								message: 'First Name is required'
+							}
+						}
+					},
+					lastName: {
+						validators: {
+							notEmpty: {
+								message: 'Last Name is required'
+							}
+						}
+					},
+					middleName: {
+						validators: {
+							notEmpty: {
+								message: 'Middle Name is required'
+							}
+						}
+					},
+					dob: {
+						validators: {
+							notEmpty: {
+								message: 'Date of Birth is required'
+							}
+						}
+					},
+					gender: {
+						validators: {
+							notEmpty: {
+								message: 'Gender is required'
+							}
+						}
+					}
+					,
+					mothersName: {
+						validators: {
+							notEmpty: {
+								message: 'Mothers Maiden Name is required'
+							}
+						}
+					},
+					panNumber: {
+						validators: {
+							notEmpty: {
+								message: 'Pan Number is required'
+							}
+						}
+					},
+					mobileNumber: {
+						validators: {
+							notEmpty: {
+								message: 'Mobile Number is required'
+							}
+						}
+					},
+					email: {
+						validators: {
+							notEmpty: {
+								message: 'Email is required'
+							},
+							emailAddress: {
+								message: 'The value is not a valid email address'
 							}
 						}
 					}

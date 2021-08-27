@@ -46,10 +46,10 @@ const linkAccount = async (req, res, next) => {
   }
 };
 
-const getLinkAccount = async (req, res, next) => {
+const getCreateAccount = async (req, res, next) => {
   try {
     const { user } = req;
-    return res.render('linkAccount', { user });
+    return res.render('createAccount', { user });
   } catch (ex) {
     return next(ex);
   }
@@ -141,7 +141,6 @@ const createAccount = async (req, res, next) => {
         firstName,
         lastName,
         middleName,
-        profilePicUrl,
         dob,
         gender,
         mothersName,
@@ -164,14 +163,17 @@ const createAccount = async (req, res, next) => {
       || !email) {
       return next(new ValidationError('Missing Parameters'));
     }
-
+    const dateofbirth = dob.split('/');
     const data = await accountService.createAccount({
       firstName,
       middleName,
       lastName,
       salutation,
-      profilePicUrl,
-      dob,
+      dob: {
+        year: dateofbirth[2],
+        month: dateofbirth[1],
+        day: dateofbirth[0]
+      },
       gender,
       mothersName,
       panNumber,
@@ -202,7 +204,7 @@ export default {
   getAccountDetails,
   getTransactions,
   sync,
-  getLinkAccount,
+  getCreateAccount,
   unlinkAccount,
   createAccount,
   getAccountBalance

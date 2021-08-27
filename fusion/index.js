@@ -55,7 +55,7 @@ const createAccount = async (userDetails) => {
   if (!response.ok) {
     throw new ValidationError(json?.message);
   }
-
+  
   return json && json.individualID;
 };
 
