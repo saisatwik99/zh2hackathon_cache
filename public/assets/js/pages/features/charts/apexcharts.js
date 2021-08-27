@@ -987,7 +987,7 @@ var KTApexChartsDemo = function () {
 	var _demo13 = function () {
 		const apexChart = "#chart_13";
 		var options = {
-			series: [44, 55, 67, 83],
+			series: [7, 11, 27, 55],
 			chart: {
 				height: 350,
 				type: 'radialBar',
@@ -1003,16 +1003,16 @@ var KTApexChartsDemo = function () {
 						},
 						total: {
 							show: true,
-							label: 'Total',
+							label: 'Total (in Rs)',
 							formatter: function (w) {
 								// By default this function returns the average of all series. The below is just an example to show the use of custom formatter function
-								return 54
+								return 3500
 							}
 						}
 					}
 				}
 			},
-			labels: ['House', 'Trip', 'Iphone', 'Car'],
+			labels: ['Health', 'Food', 'Shopping', 'Investments'],
 			colors: [primary, success, warning, danger]
 		};
 

@@ -221,7 +221,7 @@ const postTransfer = async (req, res, next) => {
     debitAccountID: userDetails.account.accountID,
     creditAccountID: peerDetails.account.accountID,
     transferTime: 1574741608000,
-    remarks: `Transfer to ${peerUserDetails.firstName}`,
+    remarks: `Debited from ${user.firstName} Credited to ${peerUserDetails.firstName}`,
     attributes: {}
   };
   const url = 'https://fusion.preprod.zeta.in/api/v1/ifi/140793/transfers';
