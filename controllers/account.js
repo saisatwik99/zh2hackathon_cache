@@ -83,21 +83,12 @@ const getAccountDetails = async (req, res, next) => {
   }
 };
 
-const getTransactions = async (req, res, next) => {
+const getAccountTransactions = async (req, res, next) => {
   try {
-    const { user } = req;
-    const transactions = await accountDb.getAllTransactions({ email: user.email });
-    const modifiedTransactions = transactions;
-    modifiedTransactions.forEach((ele) => {
-      ele.date = moment(ele.date).format('D MMM, YY');
-      if (ele.amount < 0) {
-        ele.status = 'Debit';
-        ele.amount *= (-1);
-      } else {
-        ele.status = 'Credit';
-      }
-    });
-    return responder(res)(null, { transactions: modifiedTransactions });
+    const { body: { email, pgSize, pgNumber } } = req;
+    const transactions = await accountService.getAccountTransactions({ email, pgSize, pgNumber });
+
+    return responder(res)(null, transactions);
   } catch (ex) {
     return next(ex);
   }
@@ -165,13 +156,15 @@ const createAccount = async (req, res, next) => {
       return next(new ValidationError('Missing Parameters'));
     }
 
+    const [day, month, year] = dob.split('/');
+
     const data = await accountService.createAccount({
       firstName,
       middleName,
       lastName,
       salutation,
       profilePicUrl,
-      dob,
+      dob: { day, month, year },
       gender,
       mothersName,
       panNumber,
@@ -200,7 +193,7 @@ const getAccountBalance = async (req, res, next) => {
 export default {
   linkAccount,
   getAccountDetails,
-  getTransactions,
+  getAccountTransactions,
   sync,
   getLinkAccount,
   unlinkAccount,

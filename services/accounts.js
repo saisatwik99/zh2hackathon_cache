@@ -27,19 +27,28 @@ const createAccount = async (userDetails) => {
 
 const getAccountBalance = async (email) => {
   const accountData = await accountDb.getAccountDetails({ email });
-  console.log('account Data: ', accountData);
   const accountId = accountData?.account?.accountID;
-
   if (!accountId) {
     throw new NotFoundError('Could Not Find Account With This Email');
   }
-
   const data = fusionApi.getAccountBalance(accountId);
+
+  return data;
+};
+
+const getAccountTransactions = async ({ email, pgSize, pgNumber }) => {
+  const accountData = await accountDb.getAccountDetails({ email });
+  const accountId = accountData?.account?.accountID;
+  if (!accountId) {
+    throw new NotFoundError('Could Not Find Account With This Email');
+  }
+  const data = await fusionApi.getAccountTransactions({ accountId, pageSize: pgSize, pageNumber: pgNumber });
 
   return data;
 };
 
 export default {
   createAccount,
-  getAccountBalance
+  getAccountBalance,
+  getAccountTransactions
 };
