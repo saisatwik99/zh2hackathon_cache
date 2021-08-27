@@ -1,4 +1,5 @@
 import moment from 'moment';
+import fetch from 'node-fetch';
 import { v4 as uuidv4 } from 'uuid';
 import responder from '../utils/responseHandler.js';
 import accountService from '../services/accounts.js';
@@ -238,6 +239,18 @@ const postTransfer = async (req, res, next) => {
   res.redirect('/api/account/home');
 };
 
+const getNetWorth = async (req, res, next) => {
+  try {
+    const { user } = req;
+
+    const data = await accountService.getNetWorth(user);
+
+    return responder(res)(null, { networth: data });
+  } catch (err) {
+    return next(err);
+  }
+};
+
 export default {
   linkAccount,
   getAccountDetails,
@@ -247,5 +260,6 @@ export default {
   createAccount,
   getAccountBalance,
   getTransfer,
-  postTransfer
+  postTransfer,
+  getNetWorth
 };
