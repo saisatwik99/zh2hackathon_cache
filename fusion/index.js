@@ -54,11 +54,12 @@ const createAccount = async (userDetails) => {
 
   const response = await fetch(url, options);
   const json = await response.json();
+  console.log(json);
   if (!response.ok) {
     throw new ValidationError(json?.message);
   }
   
-  return json && json.individualID;
+  return json;
 };
 
 const issueBundle = async ({ individualID, userDetails }) => {

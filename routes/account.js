@@ -9,7 +9,8 @@ router.post('/linkAccount', utils.verifyAuthToken, accountController.linkAccount
 router.get('/createAccount', utils.verifyAuthToken, accountController.getCreateAccount);
 router.get('/home', utils.verifyAuthToken, accountController.getAccountDetails);
 router.post('/unlinkAccount', utils.verifyAuthToken, accountController.unlinkAccount);
-
+router.get('/transfer', utils.verifyAuthToken, accountController.getTransfer);
+router.post('/transfer', utils.verifyAuthToken, accountController.postTransfer);
 router.post('/create', accountController.createAccount);
 router.post('/getTransactions', accountController.getAccountTransactions);
 

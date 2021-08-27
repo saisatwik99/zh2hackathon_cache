@@ -11,10 +11,13 @@ const createAccount = async (userDetails) => {
     throw new ConflictError('Account Already Exists For This User');
   }
 
-  const individualID = await fusionApi.createAccount(userDetails);
-
+  const { status, individualID } = await fusionApi.createAccount(userDetails);
+  if (status === 'REJECTED') {
+    return { status: 'REJECTED' };
+  }
+  
   const accountDetails = await fusionApi.issueBundle({ individualID, userDetails });
-
+  console.log(accountDetails);
   const account = accountDetails?.accounts[0];
   const requestID = accountDetails?.requestID;
 

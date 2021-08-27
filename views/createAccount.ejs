@@ -220,17 +220,30 @@
                                                     <!--end::Page Title-->
                                                     
                                                 </div>
+												
                                                 <!--end::Page Heading-->
                                             </div>
                                             <!--end::Info-->
                                            
                                         </div>
                                     </div>
+									
                                     <!--end::Subheader-->
                                     <!--begin::Entry-->
                                     <div class="d-flex flex-column-fluid">
                                         <!--begin::Container-->
                                         <div class="container-fluid">
+											<% if(error !== '') {%>
+											<div class="alert alert-custom alert-light-danger fade show" role="alert">
+												<div class="alert-icon"><i class="flaticon-warning"></i></div>
+												<div class="alert-text"><%= error %></div>
+												<div class="alert-close">
+													<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+														<span aria-hidden="true"><i class="ki ki-close"></i></span>
+													</button>
+												</div>
+											</div>
+											<% } %>
                                             <div class="card card-custom">
                                                 <div class="card-body p-0">
                                                     <!--begin::Wizard-->
