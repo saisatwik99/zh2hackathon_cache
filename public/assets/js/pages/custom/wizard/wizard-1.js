@@ -79,16 +79,6 @@ var KTWizard1 = function () {
 								message: 'Mobile Number is required'
 							}
 						}
-					},
-					email: {
-						validators: {
-							notEmpty: {
-								message: 'Email is required'
-							},
-							emailAddress: {
-								message: 'The value is not a valid email address'
-							}
-						}
 					}
 				},
 				plugins: {

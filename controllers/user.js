@@ -64,8 +64,10 @@ const dashboard = async (req, res) => {
   const userDetails = await userDB.getUserDetails({ email: user.email });
   const accountData = await accountDb.getAccountDetails({ email: user.email });
   const isThere = !!accountData;
+  console.log(isThere);
   if (isThere === false) {
     res.render('dashboard', { user: userDetails, isThere });
+    return;
   }
   const transactions = await accountService.getAccountTransactions({ email: user.email, pgSize: 50, pgNumber: 1 });
 

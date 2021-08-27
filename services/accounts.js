@@ -19,10 +19,10 @@ const createAccount = async (userDetails) => {
   }
 
   const accountDetails = await fusionApi.issueBundle({ individualID, userDetails });
-  console.log(accountDetails);
+
   const account = accountDetails?.accounts[0];
   const requestID = accountDetails?.requestID;
-
+  console.log(userDetails?.email);
   const user = await userDb.getUserDetails({ email: userDetails?.email });
 
   return accountDb.addAccountDetails({
