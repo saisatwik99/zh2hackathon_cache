@@ -15,5 +15,6 @@ Cache, is a application designed for Indian parents and youth who want to secure
     collection: 'sessions'
 ```
 * Run ```npm install```
+* Run ```npm start```
 * If everything is working fine, You will get a confirmation message that your application is running.
 
