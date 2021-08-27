@@ -48,6 +48,7 @@ const userLogin = async (req, res, next) => {
     const info = await userService.userLogin({ email, password });
     if (info.token !== null) {
       req.session.authtoken = info.token;
+      console.log('token: ', info.token);
       res.redirect('/api/user/dashboard');
     } else {
       res.render('login', { error: info.error, errorExist: true });
